@@ -1,0 +1,14 @@
+<div data-controller="refresh-crops">
+  <%= form_with url: crops_path, method: :get, html: { class: 'my-5', data: { refresh_crops_target: 'form' } } do |f| %>
+    <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: 'Type your city',
+                     value: params[:query],
+                     data: {
+                     refresh_crops_target: 'searchInput',
+                     action: "submit->refresh-crops#update"
+                    } %>
+  <% end %>
+</div>
+<div data-refresh-crops-target="crops">
+</div>
