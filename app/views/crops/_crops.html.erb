@@ -1,11 +1,12 @@
 <div class="crops">
   <% @crops.each do |crop| %>
-    <div class="crop-card">
-      <div class="card-body">
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
         <h2><%= crop.name %></h2>
-        <i class="fas fa-seedling"></i>
+        <p><%= crop.description %></p>
       </div>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_oS0uQwSUIXj6iQBrNIC2SVBBoZbdS4Wojw&usqp=CAU" alt="">
+        <i class="far fa-square"></i>
     </div>
   <% end %>
 </div>

@@ -1,5 +1,5 @@
 class CropsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
+  skip_before_action :authenticate_user!, only: [ :index, :toggle_favorite ]
 
   def index
     @crops = policy_scope(Crop).all
@@ -10,6 +10,8 @@ class CropsController < ApplicationController
     end
   end
 
-  def show
+  def toggle_favorite
+    @crop = Crop.find_by(id: params[:id])
+    current_user.favorited?(@crop) ? current_user.unfavorite(@crop) : current_user.favorite(@crop)
   end
 end
