@@ -1,7 +1,12 @@
 <div class="crops">
   <% @crops.each do |crop| %>
     <div class="crop-card">
-      <p><%= crop %></p>
+      <div class="card-body">
+        <h2><%= crop.name %></h2>
+        <i class="fas fa-seedling"></i>
+      </div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_oS0uQwSUIXj6iQBrNIC2SVBBoZbdS4Wojw&usqp=CAU" alt="">
     </div>
+    <a href="#" class="btn btn-primary-bblue">select</a>
   <% end %>
 </div>

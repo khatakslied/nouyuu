@@ -6,9 +6,10 @@
                      value: params[:query],
                      data: {
                      refresh_crops_target: 'searchInput',
-                     action: "submit->refresh-crops#update"
+                     action: "input->refresh-crops#update"
                     } %>
   <% end %>
-</div>
-<div data-refresh-crops-target="crops">
+  <div data-refresh-crops-target="crops">
+    <%= render "crops", crops: @crops %>
+  </div>
 </div>
