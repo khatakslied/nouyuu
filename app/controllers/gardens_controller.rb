@@ -3,6 +3,11 @@ class GardensController < ApplicationController
     @gardens = policy_scope(Garden).order(created_at: :desc)
   end
 
+  def show
+    @garden = Garden.find(params[:id])
+    authorize @garden
+  end
+
   def new
     @garden = Garden.new
     authorize @garden
