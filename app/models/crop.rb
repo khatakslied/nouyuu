@@ -7,7 +7,7 @@ class Crop < ApplicationRecord
   validates :description, presence: true, length: { maximum: 300 }
   validates :spacing_in_cm, presence: true, numericality: { only_integer: true }
   validates :planting_depth_in_cm, presence: true, numericality: { only_integer: true }
-  validates :climber, presence: true
+  validates :climber, default: false
   SUN_EXPOSURES = ['Full Sun', 'Part Sun', 'Full Shade']
   validates :sun_exposure, presence: true, inclusion: { in: SUN_EXPOSURES }
   NITROGEN_NEEDS = ['Heavy Feeder', 'Light Feeder', 'Soil Builder']
