@@ -1,6 +1,4 @@
 <div data-controller="toggle-favorite">
-  <div data-toggle-favorite-target="list">
-  </div>
   <div class="cropes">
     <% @crops.each do |crop| %>
       <%= render "crop", crop: crop %>
@@ -14,3 +12,5 @@
         <% end %>
       </div>
     </div>
+  <% end %>
+</div>
