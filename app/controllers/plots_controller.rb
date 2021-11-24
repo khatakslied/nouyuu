@@ -10,8 +10,7 @@ class PlotsController < ApplicationController
   def create
     @plot = Plot.new(plot_params)
     @plot.garden_id = params[:garden_id]
-    # harcoded crop, needs the favorites crops here
-    @plot.crop_id = 1
+    @plot.crop_id = params[:plot][:crop]
     @garden = Garden.find(params[:garden_id])
     @plot.name = params[:plot][:name]
     @tiles = params[:plot][:tiles]
@@ -29,7 +28,7 @@ class PlotsController < ApplicationController
   private
 
   def plot_params
-    params.require(:plot).permit(:garden_id, :crop_id, plot: [:name, :tiles])
+    params.require(:plot).permit(:garden_id, :crop_id, plot: [:name, :tiles, :crop])
   end
 
   def give_plot_id_to_tiles(tile_ids, plot)
