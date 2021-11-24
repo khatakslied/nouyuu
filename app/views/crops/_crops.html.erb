@@ -1,13 +1,14 @@
+<div class="crops">
+  <% @crops.each do |crop| %>
     <div class="crop-card">
       <div class="card-body">
         <div class="card-text">
           <h2><%= crop.name %></h2>
-          <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
-            <i class="far fa-square"></i>
-          <% end %>
-          <p><%= crop.plant_family %></p>
+          <p><i class="fas fa-seedling"></i> <%= crop.plant_family %></p>
           <a href="#" class="btn btn-primary">select</a>
         </div>
         <%= image_tag crop.image_url %>
       </div>
     </div>
+  <% end %>
+</div>
