@@ -2,13 +2,6 @@
   <div class="banner-content text-center">
     <h1>Start growing fresh vegetables now!</h1>
     <p>You can check the vegetables recomended to grow in your area</p>
-    <%= form_tag crops_path, method: :get do %>
-      <%= text_field_tag :query,
-                          params[:query],
-                          class: "form-control",
-                          placeholder: "find crops to grow in your city"
-                        %>
-      <%= submit_tag "Search", class: "btn btn-primary my-3" %>
-    <% end %>
+    <%= link_to "Start Growing", crops_path, class: "btn btn-primary"%>
   </div>
 </div>

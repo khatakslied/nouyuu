@@ -1,0 +1,10 @@
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2><%= crop.name %></h2>
+    <p><%= crop.description %></p>
+  </div>
+  <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
+    <i class="far fa-square"></i>
+  <% end %>
+</div>
