@@ -2,11 +2,13 @@
   <% @crops.each do |crop| %>
     <div class="crop-card">
       <div class="card-body">
-        <h2><%= crop.name %></h2>
-        <i class="fas fa-seedling"></i>
+        <div class="card-text">
+          <h2><%= crop.name %></h2>
+          <p><i class="fas fa-seedling"></i> <%= crop.plant_family %></p>
+          <a href="#" class="btn btn-primary">select</a>
+        </div>
+        <%= image_tag crop.image_url %>
       </div>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_oS0uQwSUIXj6iQBrNIC2SVBBoZbdS4Wojw&usqp=CAU" alt="">
     </div>
-    <a href="#" class="btn btn-primary-bblue">select</a>
   <% end %>
 </div>
