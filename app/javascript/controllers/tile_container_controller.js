@@ -3,7 +3,7 @@ import { Controller } from "stimulus"
 const idSet = new Set();
 
 export default class extends Controller {
-  static targets = ["tile", "input"]
+  static targets = ["tile", "input", "link", "form"]
 
   connect() {
     console.log(this.tileTargets)
@@ -20,5 +20,10 @@ export default class extends Controller {
     const idArray = new Array(...idSet)
     console.log(idArray)
     this.inputTarget.value = idArray
+  }
+
+  displayForm(event) {
+  event.formTarget.classList.toggle('d-none')
+  console.log('working?')
   }
 }

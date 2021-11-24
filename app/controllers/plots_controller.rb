@@ -15,11 +15,23 @@ class PlotsController < ApplicationController
   end
 
   def create
-    # @tiles = all the tiles that match the ids on the array
+    # after create? @tiles = params[:tiles]
+    @plot = Plot.new(plot_params)
+    @plot.garden_id = params[:garden_id]
+    @plot.crop_id = 1
+    @garden = Garden.find(params[:garden_id])
+    authorize @plot
+    if @plot.save
+      raise
+      redirect_to garden_path(@garden)
+    else
+      raise StandardError::NotAuthorized
+    end
   end
 
   private
 
   def plot_params
+    params.require(:plot).permit(:garden_id, :crop_id, plot:[:name, :tiles])
   end
 end
