@@ -4,20 +4,13 @@ class PlotsController < ApplicationController
     @plot = Plot.new
     @tiles = Tile.all
     @crops = Crop.all
-    # on click save the id of the clicked tiles
-    # use stimulus, on click
-    # https://github.com/jonhue/acts_as_favoritor to get the tiles id
-    # on click toggle the "active class" and grab everything from there?
-    # once selected ...something pops to make the user select, the #new
-    # of the plot starts when you start selecting the vegetables
-    # the new is the simple form that has the information of the crops
     authorize @plot
   end
 
   def create
-    # after create? @tiles = params[:tiles]
     @plot = Plot.new(plot_params)
     @plot.garden_id = params[:garden_id]
+    # harcoded crop, needs the favorites crops here
     @plot.crop_id = 1
     @garden = Garden.find(params[:garden_id])
     @plot.name = params[:plot][:name]
@@ -28,6 +21,7 @@ class PlotsController < ApplicationController
       give_plot_id_to_tiles(@tile_ids, @plot)
       redirect_to garden_path(@garden)
     else
+      # not sure where to lead if it doesn't work
       raise StandardError::NotAuthorized
     end
   end
