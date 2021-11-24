@@ -11,12 +11,8 @@
     <%= simple_form_for [@garden, @plot] do |f| %>
       <%= f.input :name %>
       <%#= f.input :category, as: :select, collection: Item::CATEGORIES, label: "Category" %>
-      <%#= collection with the favorited crops %>
       <%= f.input :tiles, :as => :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
       <%#= NEED TO ADD FAVORITED CROPS HERE %>
-      <%#= hidden_field_tag 'some_ids[]', [1,2,3], id: 'extra_ids' %>
-      <%#= f.input :price_per_day, label: "Price per Day" %>
-      <%#= f.input :description, as: :text, label: "Few words about an item" %>
       <%= f.submit "Create plot", class: 'btn btn-primary' %>
     <% end %>
   </div>
