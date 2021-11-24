@@ -85,6 +85,57 @@ crops = { crops: [
     sun_exposure: 'Full Sun',
     water_needs: 3,
     nitrogen_needs: 'Light Feeder'
+  },
+  {
+    name: 'Cucumber',
+    crop_type: 'Fruit Vegetable',
+    plant_family: 'Cucurbitaceae',
+    description: 'The cucumber is the cylindrical fruit of the widely-cultivated creeping vine plant Cucumis sativus. It originates from South Asia.',
+    max_days_to_harvest: 70,
+    min_days_to_harvest: 50,
+    max_hardiness_zone: 12,
+    min_hardiness_zone: 4,
+    sowing_months: 'April, May',
+    spacing_in_cm: 25,
+    planting_depth_in_cm: 4,
+    climber: false,
+    sun_exposure: 'Full Sun',
+    water_needs: 3,
+    nitrogen_needs: 'Heavy Feeder'
+  },
+  {
+    name: 'Broad Beans',
+    crop_type: 'Pod Vegetable',
+    plant_family: 'Fabaceae',
+    description: 'Broad beans (also knowns as fava beans, or faba beans) are the seeds of the Vicia faba plant, contained in a broad, green leathery pod that matures to a dark blackish-brown. They are widely cultivated as a crop for human consumption, and also as a cover crop. They originated from the Middle-East',
+    max_days_to_harvest: 100,
+    min_days_to_harvest: 80,
+    max_hardiness_zone: 10,
+    min_hardiness_zone: 2,
+    sowing_months: 'February, March, April, October, November',
+    spacing_in_cm: 25,
+    planting_depth_in_cm: 5,
+    climber: true,
+    sun_exposure: 'Full Sun',
+    water_needs: 3,
+    nitrogen_needs: 'Soil Builder'
+  },
+  {
+    name: 'Beetroot',
+    crop_type: 'Root Vegetable',
+    plant_family: 'Chenopodiaceae',
+    description: 'The beetroot is the taproot portion of the Beta vulgaris plant. Beets were domesticated in the ancient Middle East, primarily for their greens, and were grown by the Ancient Egyptians, Greeks and Romans. By the Roman era, it is thought that they were cultivated for their roots as well.',
+    max_days_to_harvest: 65,
+    min_days_to_harvest: 45,
+    max_hardiness_zone: 11,
+    min_hardiness_zone: 2,
+    sowing_months: 'April, May, June, July',
+    spacing_in_cm: 10,
+    planting_depth_in_cm: 3,
+    climber: false,
+    sun_exposure: 'Full Sun',
+    water_needs: 4,
+    nitrogen_needs: 'Heavy Feeder'
   }
 ] }
 

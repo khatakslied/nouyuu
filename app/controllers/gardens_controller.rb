@@ -5,6 +5,7 @@ class GardensController < ApplicationController
 
   def show
     @garden = Garden.find(params[:id])
+    @tiles = @garden.tiles
     authorize @garden
   end
 
