@@ -3,9 +3,9 @@ class CropPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def index?
-      true
-    end
+  def toggle_favorite?
+    return true
   end
 end
