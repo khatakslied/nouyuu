@@ -1,15 +1,13 @@
-// Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 //Headers
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Josefin+Sans:wght@300&family=Rye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
 //Body
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Josefin+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
 
 // Define fonts for body and headers
 // $body-font: "Work Sans", "Helvetica", "sans-serif";
 // $headers-font: "Nunito", "Helvetica", "sans-serif";
-$body-font: 'Aclonica', sans-serif;
-$headers-font: 'Rye', cursive;
+$headers-font: 'Quicksand', sans-serif;
+$body-font: 'Quicksand', sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
