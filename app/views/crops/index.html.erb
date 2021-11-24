@@ -1,14 +1,18 @@
-<div class="cropes">
-  <% @crops.each do |crop| %>
-    <%= render "crop", crop: crop %>
+<div data-controller="toggle-favorite">
+  <div data-toggle-favorite-target="list">
+  </div>
+  <div class="cropes">
+    <% @crops.each do |crop| %>
+      <%= render "crop", crop: crop %>
+    <% end %>
+  </div>
+  <% if @favorites.any? %>
+    <div class="crops">
+      <div style="border: 1px solid red">
+        <% @favorites.each do |favorite| %>
+          <%= render "favorited_crop", crop: favorite %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
-<% if @favorites.any? %>
-  <div class="crops">
-    <div id="favorites" style="border: 1px solid red">
-      <% @favorites.each do |favorite| %>
-        <%= render "crop", crop: favorite %>
-      <% end %>
-    </div>
-  </div>
-<% end %>

@@ -2,7 +2,7 @@
   <div class="crops">
     <div id="favorites" style="border: 1px solid red">
       <% @favorites.each do |favorite| %>
-        <%= render "crop", crop: favorite %>
+        <%= render "favorited_crop", crop: favorite %>
       <% end %>
     </div>
   </div>
