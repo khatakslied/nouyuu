@@ -10,4 +10,9 @@ class CropsController < ApplicationController
     current_user.favorited?(@crop) ? current_user.unfavorite(@crop) : current_user.favorite(@crop)
     redirect_to crops_path
   end
+
+  def favorite
+    @favorites = current_user.favorited_by_type('Crop')
+    authorize @favorites
+  end
 end
