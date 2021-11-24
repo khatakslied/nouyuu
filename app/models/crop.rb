@@ -5,6 +5,7 @@ class Crop < ApplicationRecord
   PLANT_FAMILIES = ['Asteraceae', 'Brassicaceae', 'Chenopodiaceae', 'Cucurbitaceae', 'Fabaceae', 'Lamiaceae', 'Liliaceae', 'Poaceae', 'Rosaceae', 'Solanaceae', 'Umbelliferae']
   validates :plant_family, presence: true, inclusion: { in: PLANT_FAMILIES }
   validates :description, presence: true, length: { maximum: 300 }
+  validates :image_url, presence: true
   validates :spacing_in_cm, presence: true, numericality: { only_integer: true }
   validates :planting_depth_in_cm, presence: true, numericality: { only_integer: true }
   validates :climber, default: false
