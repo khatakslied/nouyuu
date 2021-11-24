@@ -1,12 +1,12 @@
-<div data-toggle-favorite-target="basket">
-  <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-product-infos">
+<div class="crop-card">
+  <div class="card-body">
+    <div class="card-text">
       <h2><%= crop.name %></h2>
-      <p><%= crop.description %></p>
+      <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
+        <i class="fas fa-shopping-basket"></i>
+      <% end %>
+      <p><%= crop.plant_family %></p>
     </div>
-    <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
-      <i class="fas fa-shopping-basket"></i>
-    <% end %>
+    <%= image_tag crop.image_url %>
   </div>
 </div>
