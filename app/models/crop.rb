@@ -1,4 +1,5 @@
 class Crop < ApplicationRecord
+  acts_as_favoritable
   has_many :tiles, through: :plots
   has_many :plots
   validates :name, presence: true, uniqueness: true
