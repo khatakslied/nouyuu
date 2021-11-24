@@ -22,8 +22,8 @@ export default class extends Controller {
     this.inputTarget.value = idArray
   }
 
-  displayForm(event) {
-  event.formTarget.classList.toggle('d-none')
-  console.log('working?')
+  displayForm() {
+    this.formTarget.classList.toggle('d-none')
+    console.log(this.formTarget.classList)
   }
 }
