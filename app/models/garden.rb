@@ -1,5 +1,6 @@
 class Garden < ApplicationRecord
   belongs_to :user
+  has_many :tiles
   after_create :generate_tiles
 
   def generate_tiles

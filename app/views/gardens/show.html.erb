@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="row">
+    <% @tiles.each do |tile| %>
+      <div class="col border"><%= tile.x_position %> <%= tile.y_position %></div>
+    <% end %>
+  </div>
+</div>
