@@ -3,7 +3,7 @@ import { Controller } from "stimulus"
 const idSet = new Set();
 
 export default class extends Controller {
-  static targets = ["tile"]
+  static targets = ["tile", "input"]
 
   connect() {
     console.log(this.tileTargets)
@@ -19,5 +19,6 @@ export default class extends Controller {
     console.log(idSet);
     const idArray = new Array(...idSet)
     console.log(idArray)
+    this.inputTarget.value = idArray
   }
 }

@@ -7,6 +7,7 @@ class GardensController < ApplicationController
     @garden = Garden.find(params[:id])
     @tiles = @garden.tiles
     authorize @garden
+    @plot = Plot.new
   end
 
   def new

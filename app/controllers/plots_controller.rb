@@ -15,6 +15,7 @@ class PlotsController < ApplicationController
   end
 
   def create
+    # @tiles = all the tiles that match the ids on the array
   end
 
   private
