@@ -35,9 +35,8 @@ class GardensController < ApplicationController
   private
 
   def weather_call(garden)
-    key = "409db7da513ae73d18041b554926cb9e"
     uri = URI('https://api.openweathermap.org/data/2.5/weather')
-    params = { units: 'metric', q: garden.location, appid: key }
+    params = { units: 'metric', q: garden.location, appid: ENV['WEATHER_API'] }
     uri.query = URI.encode_www_form(params)
     response = Net::HTTP.get_response(uri)
     @weather_response = JSON.parse(response.body)
