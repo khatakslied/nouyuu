@@ -12,3 +12,51 @@
   display: flex;
   justify-content: space-around;
 }
+
+// For the crop#show cards
+
+.crop-show-card {
+  position: relative;
+  padding: 0px 16px;
+  img {
+    width: 170px;
+    object-fit: contain;
+  }
+}
+
+.crop-img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.crop-show-card-body {
+  display: flex;
+  justify-content: space-around;
+  height: 85vh;
+  background-color: $mint;
+  border-radius: 16px;
+  margin: 16px;
+  h1 {
+    text-align: center;
+    padding: 8px;
+    margin: 0px;
+  }
+  h5 {
+    margin: 0px;
+  }
+  p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-align: justify;
+  }
+}
+
+.crop-description-container {
+  background-color: white;
+  border-radius: 16px;
+  padding: 1px 15px;
+  margin-bottom: 8px;
+  h5 {
+    padding-top: 8px;
+  }
+}

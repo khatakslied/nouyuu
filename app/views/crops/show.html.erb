@@ -1,2 +1,20 @@
-<h1>Crops#show</h1>
-<p>Find me in app/views/crops/show.html.erb</p>
+<div class="crop-show-card-body">
+  <div class="crop-show-card">
+    <h1><%= @crop.name %></h1>
+    <div class="crop-img-container">
+      <%= image_tag @crop.image_url %>
+    </div>
+    <%#= put this in a div inline block %>
+    <h5>Plant Family: </h5>
+    <p><%= @crop.plant_family %></p>
+    <%#= put just the description in another div and give it white background %>
+    <div class="crop-description-container">
+      <h5>Description: </h5>
+      <p><%= @crop.description %></p>
+    </div>
+    <%#= put this ones in another div and divide them left/right %>
+    <p>Recommended sun exposure: <span><%= @crop.sun_exposure %></span></p>
+    <p>Recommended spacing between crops: <span><%= @crop.spacing_in_cm %></span> cms</p>
+    <p>Nitrogen use: <%= @crop.nitrogen_needs %></p>
+  </div>
+</div>
