@@ -1,16 +1,16 @@
-<div data-controller="toggle-favorite">
-  <div class="cropes">
-    <% @crops.each do |crop| %>
-      <%= render "crop", crop: crop %>
+<div data-controller="filter-crops">
+  <%= form_with url: crops_path, method: :get, html: { class: 'mb-4 input-group', data: { filter_cropes_target: 'form', action: "submit->filter-cropes#update" } } do |f| %>
+    <%= f.text_field :query,
+                      class: "form-control",
+                      placeholder: 'city',
+                      value: params[:query],
+                      data: {
+                        filter_cropes_target: "searchInput"
+                      }
+                      %>
+    <%= button_tag(class: "btn btn-primary") do %>
+      <i class="fas fa-search"></i>
     <% end %>
-  </div>
-  <% if @favorites.any? %>
-    <div class="crops">
-      <div style="border: 1px solid red">
-        <% @favorites.each do |favorite| %>
-          <%= render "favorited_crop", crop: favorite %>
-        <% end %>
-      </div>
-    </div>
   <% end %>
+  <%= render 'crop', crops: @crops %>
 </div>

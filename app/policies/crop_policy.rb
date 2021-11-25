@@ -5,6 +5,10 @@ class CropPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    return true
+  end
+
   def toggle_favorite?
     return true
   end
