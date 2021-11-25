@@ -1,10 +1,10 @@
 <div class="crop-card">
   <div class="card-body">
+    <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
+      <i class="fas fa-undo fa-lg"></i>
+    <% end %>
     <div class="card-text">
       <h2><%= crop.name %></h2>
-      <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
-        <i class="fas fa-undo"></i>
-      <% end %>
       <p><%= crop.plant_family %></p>
     </div>
     <%= link_to crop_path(crop) do %>
