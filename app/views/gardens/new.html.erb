@@ -8,6 +8,7 @@
   </div>
   <small>NOTE: Currently, only square or rectangular garden beds are supported by this app.</small>
   <%= simple_form_for @garden do |f| %>
+    <%= f.input :location, label: "Where is your garden?" %>
     <%= f.input :height, collection: 1..10, label: "Measure the length of your garden bed the closest 0.5 meters:" %>
     <%= f.input :width, collection: 1..10, label: "Measure the width of your garden bed the closest 0.5 meters:"  %>
     <%= f.submit "Build" %>

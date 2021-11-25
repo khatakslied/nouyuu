@@ -1,4 +1,6 @@
 <% @gardens.each do |garden| %>
-  <%= garden.height %>
-  <%= garden.width %>
+  <div class="garden-card">
+    <h2><%= garden.location %> Garden</h2>
+    <p><%= garden.height %> meters x <%= garden.width %> meters</p>
+  </div>
 <% end %>

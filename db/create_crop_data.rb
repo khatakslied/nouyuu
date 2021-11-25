@@ -5,7 +5,7 @@ crops = { crops: [
     name: 'Tomato',
     crop_type: 'Fruit Vegetable',
     plant_family: 'Solanaceae',
-    description: 'The tomato is the edible berry of the plant Solanum lycopersicum. The species originated in western South America and Central America',
+    description: 'The tomato is the edible berry of the plant Solanum lycopersicum. The species originated in western South America and Central America.',
     image_url: 'tomato.png',
     max_days_to_harvest: 90,
     min_days_to_harvest: 55,
