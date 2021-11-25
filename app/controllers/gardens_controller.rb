@@ -7,6 +7,8 @@ class GardensController < ApplicationController
     @garden = Garden.find(params[:id])
     @tiles = @garden.tiles
     authorize @garden
+    @plot = Plot.new
+    @favorites = current_user.favorited_by_type('Crop')
   end
 
   def new
