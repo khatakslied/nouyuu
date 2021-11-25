@@ -1,3 +1,11 @@
-<div>
-  <%= @weather_response %>
+<div class="container-weather">
+  <div class="card-weather">
+    <h2><%= @weather_response['name'] %></h2>
+    <%= image_tag("http://openweathermap.org/img/wn/#{@weather_response['weather'][0]['icon']}@2x.png") %>
+    <div class="temp-info">
+      <small><%= @weather_response['main']['temp_max'] %>°C</small>
+      <small><%= @weather_response['weather'][0]['description'] %></small>
+      <small><%= @weather_response['main']['temp_min'] %>°C</small>
+    </div>
+  </div>
 </div>
