@@ -3,7 +3,7 @@ class CropsController < ApplicationController
     @crops = policy_scope(Crop).all
 
     if params[:query].present?
-      @cropes = Crop.where('name ILIKE ?', "%#{params[:query]}%")
+      @cropes = Crop.where('min_hardiness_zone ILIKE ?', "%#{params[:query]}%")
     end
 
     respond_to do |format|
