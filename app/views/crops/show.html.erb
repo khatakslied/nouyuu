@@ -4,17 +4,40 @@
     <div class="crop-img-container">
       <%= image_tag @crop.image_url %>
     </div>
-    <%#= put this in a div inline block %>
-    <h5>Plant Family: </h5>
-    <p><%= @crop.plant_family %></p>
-    <%#= put just the description in another div and give it white background %>
+    <div class="crop-plant-family-container">
+      <h5>Plant Family: </h5>
+      <p><em><%= @crop.plant_family %></em></p>
+    </div>
     <div class="crop-description-container">
       <h5>Description: </h5>
       <p><%= @crop.description %></p>
     </div>
-    <%#= put this ones in another div and divide them left/right %>
-    <p>Recommended sun exposure: <span><%= @crop.sun_exposure %></span></p>
-    <p>Recommended spacing between crops: <span><%= @crop.spacing_in_cm %></span> cms</p>
-    <p>Nitrogen use: <%= @crop.nitrogen_needs %></p>
+    <%#= put recommended stuff together in another color %>
+    <%#= add the recommended sowing months as well %>
+    <div class="crop-white-container">
+      <h5>Needs</h5>
+      <div class="crop-bottom-details-container">
+        <p>Water:</p>
+        <p>Every <%= @crop.water_needs %> days</p>
+      </div>
+      <div class="crop-bottom-details-container">
+        <p>Nitrogen:</p>
+        <p><%= @crop.nitrogen_needs %></p>
+      </div>
+      <h5>Recommendations</h5>
+      <div class="crop-bottom-details-container">
+        <p>Sun Exposure:</p>
+        <p><%= @crop.sun_exposure %></p>
+      </div>
+      <div class="crop-bottom-details-container">
+        <p>Crop Spacing:</p>
+        <p><%= @crop.spacing_in_cm %> cm</p>
+      </div>
+      <div class="crop-bottom-details-container">
+        <p>Sowing Months:</p>
+        <p><%= @crop.sowing_months %></p>
+      </div>
+    <%#= this one should be another div with water use %>
+    </div>
   </div>
 </div>

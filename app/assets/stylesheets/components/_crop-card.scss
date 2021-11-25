@@ -52,11 +52,41 @@
 }
 
 .crop-description-container {
-  background-color: white;
+  background-color: $eggshell;
   border-radius: 16px;
   padding: 1px 15px;
   margin-bottom: 8px;
   h5 {
     padding-top: 8px;
+    margin-bottom: 1vh;
+  }
+}
+
+.crop-plant-family-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 15px;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.crop-bottom-details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 15px;
+    p {
+    margin-bottom: 0px;
+  }
+}
+
+.crop-white-container {
+  border-radius: 16px;
+  background-color: $off-white;
+  padding: 8px 0px;
+  h5 {
+    text-align: center;
   }
 }
