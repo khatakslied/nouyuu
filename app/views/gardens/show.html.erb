@@ -3,7 +3,7 @@
 <div data-controller="tile-container">
   <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
     <% @tiles.each do |tile| %>
-      <div class="tile" id="<%= tile.id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'>
+      <div class="tile" id="<%= tile.id %>" data-plot-id="<%= tile.plot_id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'>
         <% if tile.plot_id.present? %>
           <%= image_tag tile.plot.crop.image_url %>
         <% end %>
@@ -16,7 +16,6 @@
     <%= simple_form_for [@garden, @plot] do |f| %>
       <%= f.input :name %>
       <%= f.input :crop, as: :select, collection: @favorites, label: "Selected crops" %>
-      <%#= f.input :category, as: :select, collection: Item::CATEGORIES, label: "Category" %>
       <%= f.input :tiles, :as => :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
       <%#= NEED TO ADD FAVORITED CROPS HERE %>
       <%= f.submit "Create plot", class: 'btn btn-primary' %>

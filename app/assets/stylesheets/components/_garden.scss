@@ -7,12 +7,14 @@
   background-image: url(tile.png);
   border: 1px solid $off-white;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
   img {
-    object-fit: contain;
     width: 100%;
   }
 }
 
 .selected {
-  border: 1px solid $tangerine;
+  opacity: 0.6;
 }
