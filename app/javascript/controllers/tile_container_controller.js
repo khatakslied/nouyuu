@@ -26,11 +26,17 @@ export default class extends Controller {
 
   selectPlot(event) {
     // Can we do this with Stimulus?
-    const tiles = document.querySelectorAll(`div[data-plot-id='${event.currentTarget.dataset.plotId}']`)
+    const selectedTiles = document.getElementsByClassName('selected');
+    while (selectedTiles.length > 0) {
+    selectedTiles[0].classList.remove('selected');
+    }
+    console.log(selectedTiles)
+    const tiles = document.querySelectorAll(`div[data-plot-id='${event.currentTarget.dataset.plotId}']`);
     tiles.forEach(tile => {
-      tile.classList.toggle('selected')
+      tile.classList.toggle('selected');
     });
   }
+
 
   displayForm() {
     this.formTarget.classList.toggle('d-none')
