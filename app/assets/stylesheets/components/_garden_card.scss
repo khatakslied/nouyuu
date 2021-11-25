@@ -1,6 +1,38 @@
 .garden-card {
   position: relative;
-  background-color: $asparagus;
+  background-color: $weak-yolk;
   border-radius: 16px;
   padding: 8px 16px;
+  margin: 8px;
+}
+
+.garden-title-container {
+  text-align: center;
+}
+
+.garden-dimensions-container {
+  background-color: $moss;
+  background-image: url('vines.png');
+  background-size: cover;
+  border-radius: 16px;
+  padding: 8px 16px;
+  h2 {
+    color: $off-white;
+    font-weight: bold;
+  }
+  p {
+    margin: 4px 8px;
+    color: $off-white;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
+
+.garden-details-container {
+  margin: 8px 0px;
+  padding: 8px 16px;
+  p {
+    margin: 4px 8px;
+  }
+
 }
