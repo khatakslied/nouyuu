@@ -1,24 +1,22 @@
-<div data-filter-cropes-target="crop">
-  <div class="crops">
-    <% @crops.each do |crop| %>
-      <div data-filter-cropes-target="card">
-        <div class="crop-card">
-          <div class="card-body">
-            <div class="card-text">
-              <h2><%= link_to crop.name, crop_path(crop) %></h2>
-              <div data-action="click->filter-cropes#select">
-                <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
-                  <i class="fas fa-shopping-basket"></i>
-                <% end %>
-              </div>
-              <p><%= crop.plant_family %></p>
-              <%= link_to crop_path(crop) do %>
-              </div>
-              <%= image_tag crop.image_url %>
+<div data-filter-crops-target="crop">
+  <% @crops.each do |crop| %>
+    <div data-filter-crops-target="card">
+      <div class="crop-index-card">
+        <div class="crop-index-card-body">
+          <div class="crop-index-card-text">
+            <h2><%= link_to crop.name, crop_path(crop) %></h2>
+            <p><%= crop.plant_family %></p>
+            <div data-action="click->filter-crops#select">
+              <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
+                <i class="fas fa-shopping-basket"></i> <p>Add to</p>
+              <% end %>
             </div>
-          <% end %>
-        </div>
+            <%= link_to crop_path(crop) do %>
+            </div>
+            <%= image_tag crop.image_url %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

@@ -3,7 +3,7 @@ class Crop < ApplicationRecord
   has_many :tiles, through: :plots
   has_many :plots
   validates :name, presence: true, uniqueness: true
-  PLANT_FAMILIES = ['Asteraceae', 'Brassicaceae', 'Chenopodiaceae', 'Cucurbitaceae', 'Fabaceae', 'Lamiaceae', 'Liliaceae', 'Poaceae', 'Rosaceae', 'Solanaceae', 'Umbelliferae']
+  PLANT_FAMILIES = ['Amaranthaceae', 'Asteraceae', 'Brassicaceae', 'Cucurbitaceae', 'Fabaceae', 'Lamiaceae', 'Liliaceae', 'Malvaceae', 'Poaceae', 'Rosaceae', 'Solanaceae', 'Umbelliferae', 'Zingiberaceae']
   validates :plant_family, presence: true, inclusion: { in: PLANT_FAMILIES }
   validates :description, presence: true, length: { maximum: 300 }
   validates :image_url, presence: true
