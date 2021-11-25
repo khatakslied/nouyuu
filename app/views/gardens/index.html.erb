@@ -1,6 +1,13 @@
 <% @gardens.each do |garden| %>
   <div class="garden-card">
     <h2><%= garden.location %> Garden</h2>
-    <p><%= garden.height %> meters x <%= garden.width %> meters</p>
+    <p>Size of the Garden: <%= number_with_precision(garden.height, strip_insignificant_zeros: true) %> meters x <%= number_with_precision(garden.width, strip_insignificant_zeros: true) %> meters</p>
+    <p>Total amount of tiles: <%= garden.tiles.count %></p>
+    <p>Total amount of used tiles: <%= garden.tiles.where.not(plot_id: nil).count %></p>
+    <p><%= 100 - (((garden.tiles.where.not(plot_id: nil).count) * 100) / 100) %>% of space free</p>
+    <h5>Current crops growing in this garden:</h5>
+    <% garden.plots.each do |plot| %>
+      <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
+    <% end %>
   </div>
 <% end %>
