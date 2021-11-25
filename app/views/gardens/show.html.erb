@@ -1,7 +1,7 @@
 <div class="container" data-controller="tile-container">
-  <div class="row">
+  <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
     <% @tiles.each do |tile| %>
-      <div class="col border" id="<%= tile.id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'><%= tile.x_position %> <%= tile.y_position %></div>
+      <div class="tile border" id="<%= tile.id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'></div>
     <% end %>
   </div>
 
