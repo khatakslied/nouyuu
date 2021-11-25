@@ -7,6 +7,8 @@
       <% end %>
       <p><%= crop.plant_family %></p>
     </div>
-    <%= image_tag crop.image_url %>
+    <%= link_to crop_path(crop) do %>
+      <%= image_tag crop.image_url %>
+    <% end %>
   </div>
 </div>

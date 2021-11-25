@@ -1,12 +1,10 @@
-<div class="container" data-controller="tile-container">
-  <div class="row">
+<div data-controller="tile-container">
+  <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
     <% @tiles.each do |tile| %>
-      <div class="col border" id="<%= tile.id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'><%= tile.x_position %> <%= tile.y_position %></div>
+      <div class="tile" id="<%= tile.id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'></div>
     <% end %>
   </div>
-
   <div class="btn btn-primary" data-tile-container-target="link" data-action='click->tile-container#displayForm'>Add my vegetables</div>
-
   <div class="d-none" data-tile-container-target="form">
     <%= simple_form_for [@garden, @plot] do |f| %>
       <%= f.input :name %>

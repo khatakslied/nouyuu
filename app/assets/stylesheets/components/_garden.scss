@@ -1,0 +1,14 @@
+.garden {
+  display: grid;
+}
+
+.tile {
+  background-image: url(tile.png);
+  height: 60px;
+  border: 1px solid $off-white;
+  border-radius: 4px;
+}
+
+.selected {
+  border: 1px solid $tangerine;
+}
