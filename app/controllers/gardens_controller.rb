@@ -2,7 +2,6 @@ require 'uri'
 require 'net/http'
 
 class GardensController < ApplicationController
-  before_action :weather_call
 
   def index
     @gardens = policy_scope(Garden).order(created_at: :desc)
@@ -10,7 +9,8 @@ class GardensController < ApplicationController
 
   def show
     @garden = Garden.find(params[:id])
-    @tiles = @garden.tiles
+    weather_call(@garden)
+    @tiles = @garden.tiles.order(id: :asc)
     authorize @garden
     @plot = Plot.new
     @favorites = current_user.favorited_by_type('Crop')
@@ -25,7 +25,6 @@ class GardensController < ApplicationController
     @garden = Garden.new(garden_params)
     authorize @garden
     @garden.user = current_user
-    # @garden.location = "Meguro"
     if @garden.save!
       redirect_to garden_path(@garden)
     else
@@ -33,16 +32,15 @@ class GardensController < ApplicationController
     end
   end
 
-  def weather_call
-    uri = URI('https://api.openweathermap.org/data/2.5/weather')
-    params = { units: 'metric', q: "Tokyo", appid: ENV['WEATHER_API'] }
-    uri.query = URI.encode_www_form(params)
-
-    res = Net::HTTP.get_response(uri)
-    @weather_response = JSON.parse(res.body)
-  end
-
   private
+
+  def weather_call(garden)
+    uri = URI('https://api.openweathermap.org/data/2.5/weather')
+    params = { units: 'metric', q: garden.location, appid: ENV['WEATHER_API'] }
+    uri.query = URI.encode_www_form(params)
+    response = Net::HTTP.get_response(uri)
+    @weather_response = JSON.parse(response.body)
+  end
 
   def garden_params
     params.require(:garden).permit(:location, :height, :width)
