@@ -1,13 +1,9 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["form", "crop", "searchInput", "card"]
-
-  connect() {
-    console.log(this.formTarget)
-  }
+  static targets = ["crop"]
 
   select() {
-    this.cardTarget.style.text = "red"
+    this.cropTarget.classList.togle('active')
   }
 }
