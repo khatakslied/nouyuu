@@ -9,10 +9,16 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Favorites #{current_user.favorited_by_type('Crop').count}", favorite_crops_path, class: "nav-link" %>
+          <%= link_to "Selected Crops:  #{current_user.favorited_by_type('Crop').count}", favorite_crops_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Garden", "#", class: "nav-link" %>
+          <%= link_to "Create a Garden", new_garden_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Gardens", current_user.gardens.any? ? gardens_path : new_garden_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "List of Crops", crops_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

@@ -22,7 +22,7 @@ class GardensController < ApplicationController
     @garden.user = current_user
     # @garden.location = "Meguro"
     if @garden.save!
-      redirect_to gardens_path
+      redirect_to garden_path(@garden)
     else
       render :new
     end
