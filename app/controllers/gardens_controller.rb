@@ -40,7 +40,7 @@ class GardensController < ApplicationController
     uri.query = URI.encode_www_form(params)
 
     res = Net::HTTP.get_response(uri)
-    @weather_response = JSON.parse(res.body)['weather']['icon']
+    @weather_response = JSON.parse(res.body)
   end
 
   private
