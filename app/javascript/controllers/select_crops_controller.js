@@ -3,7 +3,12 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = ["crop"]
 
-  select() {
-    this.cropTarget.classList.togle('active')
+  connect() {
+    console.log(this.cropTarget)
+  }
+
+  mark(event) {
+    event.preventDefault()
+    event.currentTarget.classList.toggle('favorited')
   }
 }

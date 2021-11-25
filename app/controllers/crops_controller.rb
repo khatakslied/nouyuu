@@ -47,11 +47,11 @@ class CropsController < ApplicationController
       when 'Autumn'
         @crops = Crop.where('sowing_months ILIKE :query', query: "%September, October, November%" )
       when 'Winter'
-        @crops = Crop.where('sowing_months = :query', query: "%December, January, February%" )
+        @crops = Crop.where('sowing_months ILIKE :query', query: "%December, January, February%" )
       when 'Spring'
-        @crops = Crop.where('sowing_months = :query', query: "%March, April, May%")
+        @crops = Crop.where('sowing_months ILIKE :query', query: "%March, April, May%")
       when 'Summer'
-        @crops = Crop.where('sowing_months = :query', query: "%June, July, August%" )
+        @crops = Crop.where('sowing_months ILIKE :query', query: "%June, July, August%" )
       else
         @crops = Crop.all
       end
