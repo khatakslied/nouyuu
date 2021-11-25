@@ -1,4 +1,4 @@
-<%= @weather_response %>
+<%= image_tag("http://openweathermap.org/img/wn/#{@weather_response['weather'][0]['icon']}@2x.png") %>
 <% @gardens.each do |garden| %>
   <%= garden.height %>
   <%= garden.width %>
