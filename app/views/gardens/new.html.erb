@@ -1,5 +1,15 @@
-<%= simple_form_for @garden do |f| %>
-  <%= f.input :height, collection: 1..10 %>
-  <%= f.input :width, collection: 1..10 %>
-  <%= f.submit "Build" %>
-<% end %>
+<div class="container">
+  <h1>Let's build your garden.</h1>
+  <div>
+  <h2>image</h2>
+  <h2>image</h2>
+  <h2>image</h2>
+  <h2>image</h2>
+  </div>
+  <small>NOTE: Currently, only square or rectangular garden beds are supported by this app.</small>
+  <%= simple_form_for @garden do |f| %>
+    <%= f.input :height, collection: 1..10, label: "Measure the length of your garden bed the closest 0.5 meters:" %>
+    <%= f.input :width, collection: 1..10, label: "Measure the width of your garden bed the closest 0.5 meters:"  %>
+    <%= f.submit "Build" %>
+  <% end %>
+</div>
