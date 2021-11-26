@@ -1,25 +1,22 @@
-<div data-filter-crops-target="crop">
-  <% @crops.each do |crop| %>
-    <div data-filter-crops-target="card">
-      <div class="crop-index-card">
-        <% if current_user.favorited?(crop) %>
-          <small>Added</small>
-        <% end %>
-        <div class="crop-index-card-body">
-          <div class="crop-index-card-text">
-            <h2><%= link_to crop.name, crop_path(crop) %></h2>
-            <p><%= crop.plant_family %></p>
-            <div data-action="click->filter-crops#select">
-              <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
-                <i class="fas fa-shopping-basket"></i>
-              <% end %>
+<% @crops.each do |crop| %>
+  <div data-mark-crops-target="crop">
+    <div class="crop-index-card">
+      <div class="crop-index-card-body">
+        <div class="crop-index-card-text">
+          <h2><%= link_to crop.name, crop_path(crop) %></h2>
+          <p><%= crop.plant_family %></p>
+          <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
+            <div data-action="click->mark-crops#mark">
+              <%# <div class="basket" data-mark-crops-target="basket"> %>
+              <i class="fas fa-shopping-basket"></i>
+              <%# </div> %>
             </div>
-            <%= link_to crop_path(crop) do %>
-            </div>
-            <%= image_tag crop.image_url %>
+          <% end %>
+          <%= link_to crop_path(crop) do %>
           </div>
-        <% end %>
-      </div>
+          <%= image_tag crop.image_url %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
