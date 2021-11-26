@@ -6,12 +6,12 @@
   <div class="card-nouyuu card-other-note">
     <small>NOTE: Currently, <strong>only square or rectangular</strong> gardens are supported by this app. Gardens will display better if you assign the <strong>longest dimension</strong> of your garden to <strong>length</strong>.</small>
   </div>
-  <div class="form-container-gardens-new">
+  <div class="form-container-gardens">
     <%= simple_form_for @garden do |f| %>
       <%= f.input :location, label: "Where is your garden?", placeholder: "City" %>
       <%= f.input :height, input_html: { type: "number", step: 0.5, min: 1, max: 10 },label: "LENGTH of your garden in meters:", placeholder: "Between 1 and 10 meters" %>
       <%= f.input :width, input_html: { type: "number", step: 0.5, min: 1, max: 10 }, label: "WIDTH of your garden in meters:", placeholder: "Between 1 and 10 meters" %>
-      <%= f.submit "Build", class: "btn btn-primary btn-gardens-new" %>
+      <%= f.submit "Build", class: "btn btn-primary btn-gardens" %>
     <% end %>
   </div>
 </div>

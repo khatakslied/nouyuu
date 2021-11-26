@@ -10,15 +10,16 @@
       </div>
     <% end %>
   </div>
-
-  <div class="btn btn-primary" data-tile-container-target="link" data-action='click->tile-container#displayForm'>Add my vegetables</div>
-  <div class="d-none" data-tile-container-target="form">
+  <div class="form-container-gardens">
+    <div class="btn btn-gardens-add-plot" data-tile-container-target="link" data-action='click->tile-container#displayForm'>Add crops to plot</div>
+  </div>
+  <div class="d-none form-container-gardens" data-tile-container-target="form">
     <%= simple_form_for [@garden, @plot] do |f| %>
       <%= f.input :name %>
       <%= f.input :crop, as: :select, collection: @favorites, label: "Selected crops" %>
       <%= f.input :tiles, :as => :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
       <%#= NEED TO ADD FAVORITED CROPS HERE %>
-      <%= f.submit "Create plot", class: 'btn btn-primary' %>
+      <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
     <% end %>
   </div>
 </div>
