@@ -1,0 +1,108 @@
+// General card styles
+.card-nouyuu {
+  margin: 8px;
+  padding: 8px;
+  border-radius: 16px;
+}
+
+// Crops#Index cards. Start with... .card-crops-index-
+
+// Crops#Show cards. Start with... .card-crops-show-
+
+.card-crops-show-body {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  height: 85vh;
+  background-color: $mint;
+  border-radius: 16px;
+  margin: 16px;
+  h1 {
+    text-align: center;
+    padding: 8px;
+    margin: 0px;
+  }
+  h5 {
+    margin: 0px;
+  }
+  p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-align: justify;
+    line-height: 1.4;
+  }
+}
+
+.card-crops-show {
+  position: relative;
+  padding: 0px 16px;
+  img {
+    width: 170px;
+    object-fit: contain;
+  }
+}
+
+.card-crops-show-img{
+  display: flex;
+  justify-content: center;
+}
+
+
+.card-crops-show-description {
+  background-color: $eggshell;
+  border-radius: 16px;
+  padding: 1px 15px;
+  margin-bottom: 8px;
+  h5 {
+    padding-top: 8px;
+    margin-bottom: 1vh;
+  }
+}
+
+.card-crops-show-plant-family {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 15px;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.card-crops-show-bottom-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 15px;
+    p {
+    margin-bottom: 0px;
+  }
+}
+
+.card-crops-show-white-container {
+  border-radius: 16px;
+  background-color: $off-white;
+  padding: 8px 0px;
+  h5 {
+    text-align: center;
+  }
+}
+
+.card-crops-show-return-link {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 24px;
+  z-index: 2;
+}
+
+// Crops#Favorite cards. Start with... .card-crops-fav-
+
+// Gardens#Index cards. Start with... .card-gardens-index-
+
+// Other cards. Start with... .card-other-
+
+.card-other-note {
+  margin-top: 16px;
+  background-color: $weak-yolk;
+}

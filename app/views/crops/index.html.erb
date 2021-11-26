@@ -1,6 +1,7 @@
 <div class="container">
-  <%= form_with url: crops_path, method: :get, html: { class: 'mb-4 input-group', data: { filter_cropes_target: 'form', action: "submit->filter-crops#update" } } do |f| %>
-    <%= f.text_field :query,
+  <div data-controller="filter-crops">
+    <%= form_with url: crops_path, method: :get, html: { class: 'd-none mb-4 input-group', data: { filter_cropes_target: 'form', action: "submit->filter-crops#update" } } do |f| %>
+      <%= f.text_field :query,
                         class: "form-control",
                         placeholder: 'city',
                         value: params[:query],
