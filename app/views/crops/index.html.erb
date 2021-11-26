@@ -13,6 +13,9 @@
         <i class="fas fa-search"></i>
       <% end %>
     <% end %>
+    <% if current_user.favorites_by_type('Crop').any? %>
+      <%= link_to 'Plant Seeds', new_garden_path, class: "btn btn-primary w-100 sticky-top" %>
+    <% end %>
     <%= render 'crop', crops: @crops %>
   </div>
 </div>
