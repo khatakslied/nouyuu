@@ -1,5 +1,6 @@
+
 <div class="container">
-  <div data-controller="filter-crops">
+
     <%= form_with url: crops_path, method: :get, html: { class: 'mb-4 input-group', data: { filter_cropes_target: 'form', action: "submit->filter-crops#update" } } do |f| %>
       <%= f.text_field :query,
                         class: "form-control",
@@ -14,5 +15,4 @@
       <% end %>
     <% end %>
     <%= render 'crop', crops: @crops %>
-  </div>
 </div>
