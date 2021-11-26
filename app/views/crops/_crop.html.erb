@@ -3,7 +3,7 @@
     <div class="crop-index-card">
       <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
         <%# <div class="basket" data-mark-crops-target="basket"> %>
-        <div class='basket' style=<%= current_user.favorited?(crop) ? "color:#AE133B" : "color:#FAFAFA" %> data-action="click->mark-crops#mark">
+        <div class='star' style=<%= current_user.favorited?(crop) ? "color:#AE133B" : "color:#FAFAFA" %> data-action="click->mark-crops#mark">
           <i class="fas fa-star"></i>
         </div>
         <%# </div> %>
