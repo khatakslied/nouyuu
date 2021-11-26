@@ -1,7 +1,7 @@
 // For the crop#index cards
 
-.red {
-  color: red;
+.marked {
+  color: $burgundy;
 }
 
 .crop-index-card {
@@ -9,17 +9,25 @@
   background-color: $mint;
   border-radius: 16px;
   margin: 8px 0;
+}
 
-  .basket {
-    position: absolute;
-    top: 16;
-    left: -16;
-  }
+.basket {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  left: 12px;
+  color: $off-white;
+   i {
+     font-size: 24px;
+   }
 }
 
 .crop-index-card-body {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  padding: 0px 16px;
   img {
     width: 120px;
     object-fit: contain;
@@ -27,4 +35,5 @@
 }
 
 .crop-index-card-text {
+  margin-top: 8px;
 }
