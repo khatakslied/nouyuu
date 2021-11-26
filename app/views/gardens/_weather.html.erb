@@ -1,6 +1,6 @@
 <div class="container-weather">
   <div class="card-weather">
-    <h2><%= @weather_response['name'] %></h2>
+    <h3><%= @weather_response['name'] %></h3>
     <%= image_tag("http://openweathermap.org/img/wn/#{@weather_response['weather'][0]['icon']}@2x.png") %>
     <div class="temp-info-container">
       <small><%= @weather_response['main']['temp_max'].round %>°C</small>
