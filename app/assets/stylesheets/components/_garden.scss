@@ -1,5 +1,7 @@
 .garden {
   display: grid;
+  overflow: scroll;
+  margin: 32px 0;
 }
 
 .tile {
