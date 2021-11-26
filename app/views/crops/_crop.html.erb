@@ -2,13 +2,16 @@
   <% @crops.each do |crop| %>
     <div data-filter-crops-target="card">
       <div class="crop-index-card">
+        <% if current_user.favorited?(crop) %>
+          <small>Added</small>
+        <% end %>
         <div class="crop-index-card-body">
           <div class="crop-index-card-text">
             <h2><%= link_to crop.name, crop_path(crop) %></h2>
             <p><%= crop.plant_family %></p>
             <div data-action="click->filter-crops#select">
               <%= link_to toggle_favorite_crop_path(crop), method: "POST" do %>
-                <i class="fas fa-shopping-basket"></i> <p>Add to</p>
+                <i class="fas fa-shopping-basket"></i>
               <% end %>
             </div>
             <%= link_to crop_path(crop) do %>

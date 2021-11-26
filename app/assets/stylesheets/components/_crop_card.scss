@@ -5,6 +5,12 @@
   background-color: $mint;
   border-radius: 16px;
   margin: 8px 0;
+
+  small {
+    position: absolute;
+    top: 85px;
+    right: 16px;
+  }
 }
 
 .crop-index-card-body {
