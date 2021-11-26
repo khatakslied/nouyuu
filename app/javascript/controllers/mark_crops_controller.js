@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   mark(event) {
-    event.currentTarget.classList.toggle('red')
+    event.currentTarget.style.color = 'red'
     // event.basketTarget.style.color = 'red'
     // ?    console.log(this.basketTarget)
   }

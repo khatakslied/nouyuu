@@ -10,10 +10,10 @@
   border-radius: 16px;
   margin: 8px 0;
 
-  small {
+  .basket {
     position: absolute;
-    top: 85px;
-    right: 16px;
+    top: 16;
+    left: -16;
   }
 }
 
@@ -27,7 +27,6 @@
 }
 
 .crop-index-card-text {
-
 }
 
 // For the crop#show cards
