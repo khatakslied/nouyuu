@@ -38,6 +38,7 @@
 
 .crop-show-card-body {
   display: flex;
+  position: relative;
   justify-content: space-around;
   height: 85vh;
   background-color: $mint;
@@ -96,4 +97,12 @@
   h5 {
     text-align: center;
   }
+}
+
+.crop-show-return-container {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 24px;
+  z-index: 2;
 }
