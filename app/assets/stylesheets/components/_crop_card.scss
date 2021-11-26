@@ -1,18 +1,24 @@
-.crop-card {
+// For the crop#index cards
+
+.crop-index-card {
   position: relative;
+  background-color: $mint;
+  border-radius: 16px;
+  padding: 8px 16px;
+  margin: 8px 0;
+}
+
+.crop-index-card-body {
+  display: flex;
+  justify-content: space-around;
   img {
     width: 120px;
     object-fit: contain;
   }
-  background-color: $mint;
-  border-radius: 16px;
-  padding: 8px 16px;
-  margin: 8px;
 }
 
-.card-body {
-  display: flex;
-  justify-content: space-around;
+.crop-index-card-text {
+
 }
 
 .favorited-card {

@@ -1,3 +1,4 @@
+
 <div data-controller="select-crops">
   <div class="crops">
     <% @crops.each do |crop| %>
@@ -17,9 +18,12 @@
               </div>
               <%= image_tag crop.image_url %>
             </div>
-          <% end %>
-        </div>
+            <%= link_to crop_path(crop) do %>
+            </div>
+            <%= image_tag crop.image_url %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

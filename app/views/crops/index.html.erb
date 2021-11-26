@@ -1,22 +1,18 @@
-<div>
-  <h1>When do you want to harvest?</h1>
-  <%= form_with url: crops_path, local: true, method: :get,  html: { class: 'mb-4 input-group' } do |f| %>
-    <%= f.text_field :query,
-                      class: "form-control",
-                      value: params[:query]
-                      %>
-    <%= button_tag(class: "btn btn-primary") do %>
-      Autumn
+
+<div class="container">
+
+    <%= form_with url: crops_path, method: :get, html: { class: 'mb-4 input-group', data: { filter_cropes_target: 'form', action: "submit->filter-crops#update" } } do |f| %>
+      <%= f.text_field :query,
+                        class: "form-control",
+                        placeholder: 'city',
+                        value: params[:query],
+                        data: {
+                          filter_cropes_target: "searchInput"
+                        }
+                        %>
+      <%= button_tag(class: "btn btn-primary") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
     <% end %>
-    <%= button_tag(class: "btn btn-primary") do %>
-      Winter
-    <% end %>
-    <%= button_tag(class: "btn btn-primary") do %>
-      Spring
-    <% end %>
-    <%= button_tag(class: "btn btn-primary") do %>
-      All
-    <% end %>
-  <% end %>
-  <%= render 'crop', crops: @crops %>
+    <%= render 'crop', crops: @crops %>
 </div>
