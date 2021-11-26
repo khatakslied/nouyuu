@@ -1,13 +1,17 @@
 <div class="container">
-  <h1>Let's build your garden.</h1>
+  <h2>Let's build your garden</h2>
   <div>
   <%= image_tag "measure.png", style: "width: 100%;"%>
   </div>
-  <small>NOTE: Currently, only square or rectangular gardens are supported by this app.</small>
-  <%= simple_form_for @garden do |f| %>
-    <%= f.input :location, label: "Where is your garden?" %>
-    <%= f.input :height, input_html: { type: "number", step: 0.5, min: 1, max: 10 },label: "Measure the length of your garden bed the closest 0.5 meters:" %>
-    <%= f.input :width, input_html: { type: "number", step: 0.5, min: 1, max: 10 }, label: "Measure the width of your garden bed the closest 0.5 meters:"  %>
-    <%= f.submit "Build" %>
-  <% end %>
+  <div class="card-nouyuu card-other-note">
+    <small>NOTE: Currently, <strong>only square or rectangular</strong> gardens are supported by this app. Gardens will display better if you assign the <strong>longest dimension</strong> of your garden to <strong>length</strong>.</small>
+  </div>
+  <div class="form-container-gardens-new">
+    <%= simple_form_for @garden do |f| %>
+      <%= f.input :location, label: "Where is your garden?", placeholder: "City" %>
+      <%= f.input :height, input_html: { type: "number", step: 0.5, min: 1, max: 10 },label: "LENGTH of your garden in meters:", placeholder: "Between 1 and 10 meters" %>
+      <%= f.input :width, input_html: { type: "number", step: 0.5, min: 1, max: 10 }, label: "WIDTH of your garden in meters:", placeholder: "Between 1 and 10 meters" %>
+      <%= f.submit "Build", class: "btn btn-primary btn-gardens-new" %>
+    <% end %>
+  </div>
 </div>
