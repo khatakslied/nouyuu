@@ -1,4 +1,9 @@
 <div class="crop-show-card-body">
+  <%= link_to crops_path do %>
+    <div class="crop-show-return-container">
+      <i class="far fa-arrow-alt-circle-left"></i>
+    </div>
+  <% end %>
   <div class="crop-show-card">
     <h1><%= @crop.name %></h1>
     <div class="crop-img-container">
