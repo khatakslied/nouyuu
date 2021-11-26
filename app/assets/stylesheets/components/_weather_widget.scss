@@ -3,6 +3,10 @@
     background-color: $eggshell;
     text-align: center;
     width: 100%;
+    padding: 8px;
+    img {
+      width: 50px;
+    }
 }
 
 .temp-info-container {
