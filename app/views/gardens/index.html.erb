@@ -14,7 +14,10 @@
           <h5>Currently Growing:</h5>
         </div>
         <% garden.plots.each do |plot| %>
-          <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
+          <div class="d-flex">
+            <%= image_tag plot.crop.image_url %>
+            <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
+          </div>
         <% end %>
       </div>
     </div>

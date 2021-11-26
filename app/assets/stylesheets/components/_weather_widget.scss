@@ -1,15 +1,24 @@
 
 .card-weather {
-    background-color: $eggshell;
-    text-align: center;
-    width: 100%;
-    padding: 8px;
-    img {
-      width: 50px;
-    }
+  background-image: url(background-mint.png);
+  background-size: contain;
+  text-align: center;
+  width: 100%;
+  padding: 8px;
+  img {
+    width: 50px;
+    background-color: $mint;
+    border-radius: 16px;
+  }
 }
 
-.temp-info-container {
+.container-temp-info {
   display: flex;
   justify-content: space-between;
+  p {
+    margin: 4px;
+  }
+  small {
+    margin: 8px;
+  }
 }
