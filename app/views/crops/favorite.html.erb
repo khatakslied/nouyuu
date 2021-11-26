@@ -1,10 +1,12 @@
-<% if @favorites.any? %>
-  <div>
-    <% @favorites.each do |favorite| %>
-      <%= render "favorited_crop", crop: favorite %>
-    <% end %>
-  </div>
-<% else %>
-  <p>Your seed storage is empty...</p>
-<% end %>
-<%= link_to "Find Seeds", crops_path, class: "btn btn-primary" %>
+<div class="favorite-crops">
+  <% if @favorites.any? %>
+    <div>
+      <% @favorites.each do |favorite| %>
+        <%= render "favorited_crop", crop: favorite %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Your seed storage is empty...</p>
+  <% end %>
+  <%= link_to "Find Seeds", crops_path, class: "btn btn-primary w-100" %>
+</div>
