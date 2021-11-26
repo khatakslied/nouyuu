@@ -8,6 +8,7 @@ export default class extends Controller {
   }
 
   mark(event) {
+    event.preventDefault()
     event.currentTarget.style.color = '#AE133B'
     // event.basketTarget.style.color = 'red'
     // ?    console.log(this.basketTarget)
