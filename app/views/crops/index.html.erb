@@ -9,10 +9,14 @@
                           filter_cropes_target: "searchInput"
                         }
                         %>
-      <%= button_tag(class: "btn btn-primary") do %>
-        <i class="fas fa-search"></i>
-      <% end %>
+    <%= button_tag(class: "btn btn-primary") do %>
+      <i class="fas fa-search"></i>
     <% end %>
+  <% end %>
+  <% if current_user.favorites_by_type('Crop').any? %>
+    <%= link_to 'Plant Seeds', new_garden_path, class: "btn btn-primary w-100 sticky-top" %>
+  <% end %>
+  <div data-controller="mark-crops">
     <%= render 'crop', crops: @crops %>
   </div>
 </div>
