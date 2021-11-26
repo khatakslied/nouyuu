@@ -8,14 +8,15 @@
   border-radius: 16px;
   padding: 8px 16px;
   margin: 8px;
-  small {
-    display: none;
-  }
 }
 
 .card-body {
   display: flex;
   justify-content: space-around;
+}
+
+.favorited-card {
+  opacity: 0.5;
 }
 
 // For the crop#show cards
@@ -94,17 +95,4 @@
   h5 {
     text-align: center;
   }
-}
-
-.favorited {
-  opacity: 0.5;
-  position: relative;
-  img {
-    width: 120px;
-    object-fit: contain;
-  }
-  background-color: $mint;
-  border-radius: 16px;
-  padding: 8px 16px;
-  margin: 8px;
 }

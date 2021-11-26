@@ -1,7 +1,9 @@
 <div class="crops">
   <% if @favorites.any? %>
     <% @favorites.each do |favorite| %>
-      <%= render "favorited_crop", crop: favorite %>
+      <div class="crop-card">
+        <%= render "favorited_crop", crop: favorite %>
+      </div>
     <% end %>
   <% else %>
     <p>Your seed storage is empty...</p>
