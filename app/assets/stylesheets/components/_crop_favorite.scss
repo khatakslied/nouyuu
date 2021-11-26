@@ -1,0 +1,20 @@
+// For the crops/favorites cards
+.crop-favorite-card {
+  position: relative;
+  background-color: $mint;
+  border-radius: 16px;
+  margin: 8px 0;
+}
+
+.crop-favorite-card-body {
+  display: flex;
+  justify-content: space-around;
+  img {
+    width: 120px;
+    object-fit: contain;
+  }
+}
+
+.crop-favorite-card-text {
+
+}
