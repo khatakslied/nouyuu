@@ -1,6 +1,6 @@
 <%= render "gardens/weather" %>
 
-<div data-controller="tile-container">
+<div class="container" data-controller="tile-container">
   <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
     <% @tiles.each do |tile| %>
       <div class="tile" id="<%= tile.id %>" data-plot-id="<%= tile.plot_id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'>

@@ -6,11 +6,11 @@
   margin: 8px;
 }
 
-.garden-title-container {
+.garden-card-title {
   text-align: center;
 }
 
-.garden-dimensions-container {
+.garden-card-header {
   background-color: $moss;
   background-image: url('vines.png');
   background-size: cover;
@@ -28,7 +28,7 @@
   }
 }
 
-.garden-details-container {
+.garden-card-details {
   margin: 8px 0px;
   padding: 8px 16px;
   p {
