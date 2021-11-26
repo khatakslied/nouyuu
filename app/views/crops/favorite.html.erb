@@ -1,6 +1,6 @@
 <% if @favorites.any? %>
   <div class="crops">
-    <div id="favorites" style="border: 1px solid red">
+    <div>
       <% @favorites.each do |favorite| %>
         <%= render "favorited_crop", crop: favorite %>
       <% end %>
