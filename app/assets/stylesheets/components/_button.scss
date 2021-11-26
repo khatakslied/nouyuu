@@ -9,3 +9,10 @@
   background-color: $asparagus;
   font-weight: bold;
 }
+
+//FIX THIS LATER!!!
+.btn-sticky-top {
+  position: sticky;
+  top: 78px;
+  z-index: 3;
+}
