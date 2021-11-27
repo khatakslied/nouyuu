@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get 'favorite'
     end
     member do
-      post 'toggle_favorite', to: "crops#toggle_favorite"
+      patch 'toggle_favorite', to: "crops#toggle_favorite"
     end
   end
   resources :gardens, only: [:show, :index, :new, :create] do
