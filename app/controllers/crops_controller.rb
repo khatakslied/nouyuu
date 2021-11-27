@@ -21,7 +21,10 @@ class CropsController < ApplicationController
     @crop = Crop.find_by(id: params[:id])
     authorize @crop
     current_user.favorited?(@crop) ? current_user.unfavorite(@crop) : current_user.favorite(@crop)
-    redirect_to crops_path
+
+    respond_to do |format|
+      format.json { render @crop }
+    end
   end
 
   def favorite

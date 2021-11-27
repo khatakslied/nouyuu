@@ -1,16 +1,14 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["crop", "tag", "basket"]
+  static targets = []
+  static values = { marked: Boolean }
 
   connect() {
     // console.log(this.cropTarget)
   }
 
   mark(event) {
-    event.preventDefault()
-    event.currentTarget.style.color = '#AE133B'
-    // event.basketTarget.style.color = 'red'
-    // ?    console.log(this.basketTarget)
+    event.currentTarget.classList.toggle('marked')
   }
 }
