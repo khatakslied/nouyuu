@@ -1,6 +1,7 @@
 class CropsController < ApplicationController
   def index
     @crops = policy_scope(Crop).all
+    @favorite_crops = current_user.favorites_by_type('Crop').count
 
     if params[:query].present?
       @cropes = Crop.where('name ILIKE ?', "%#{params[:query]}%")

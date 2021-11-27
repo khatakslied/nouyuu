@@ -9,14 +9,16 @@
                           filter_cropes_target: "searchInput"
                         }
                         %>
-    <%= button_tag(class: "btn btn-primary") do %>
-      <i class="fas fa-search"></i>
+      <%= button_tag(class: "btn btn-primary") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
     <% end %>
-  <% end %>
-  <% if current_user.favorites_by_type('Crop').any? %>
-    <%= link_to 'Plant Seeds', new_garden_path, class: "btn btn-primary w-100 btn-sticky-top" %>
-  <% end %>
-  <div data-controller="mark-crops">
-    <%= render 'crop', crops: @crops %>
+    <div data-controller="mark-crops" data-mark-crops-number-value=<%= @favorite_crops %>>
+      <% if current_user.favorites_by_type('Crop').any? %>
+        <%= link_to new_garden_path, data: { mark_crops_target: "button" }, class: "btn btn-primary w-100 btn-sticky-top" do %>
+          <%= "Plant Seeds #{@favorite_crops}" %>
+        <% end %>
+      <% end %>
+      <%= render 'crop', crops: @crops %>
+    </div>
   </div>
-</div>
