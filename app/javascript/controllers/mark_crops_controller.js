@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = ['button']
-  static values = { number: String }
+  static values = { number: Number }
 
   connect() {
     this.numberValueChanged()
@@ -19,5 +19,10 @@ export default class extends Controller {
 
   numberValueChanged() {
     this.buttonTarget.innerHTML = `Plant seeds ${this.numberValue}`
+    if (this.numberValue === 0) {
+      this.buttonTarget.classList.add('d-none')
+    } else {
+      this.buttonTarget.classList.remove('d-none')
+    }
   }
 }
