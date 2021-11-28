@@ -23,7 +23,7 @@ class CropsController < ApplicationController
     current_user.favorited?(@crop) ? current_user.unfavorite(@crop) : current_user.favorite(@crop)
 
     respond_to do |format|
-      format.json { render @crop }
+      format.json { render json: @crop }
     end
   end
 
