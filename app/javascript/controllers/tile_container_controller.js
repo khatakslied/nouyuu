@@ -14,10 +14,12 @@ export default class extends Controller {
       this.selectPlot(event)
       document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
       this.buttonTarget.classList.add('d-none')
+      this.formTarget.classList.add('d-none')
     } else {
       this.selectFree(event)
       document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
       this.buttonTarget.classList.remove('d-none')
+      this.formTarget.classList.remove('d-none')
     }
   }
 
