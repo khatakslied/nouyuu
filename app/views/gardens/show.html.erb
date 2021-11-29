@@ -25,7 +25,9 @@
         <%= f.input :name %>
         <%= f.input :crop, as: :select, collection: @favorites, label: "Selected crops" %>
         <%= f.input :tiles, :as => :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
-        <%#= NEED TO ADD FAVORITED CROPS HERE %>
+        <%#= testing hardiness & sowing months crops %>
+        <%= f.input :crop, as: :select, collection: @hardiness_recommendation, label: "Recommendations by location & season" %>
+        <%#=  %>
         <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
       <% end %>
     </div>

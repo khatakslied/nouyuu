@@ -13,6 +13,19 @@ class GardensController < ApplicationController
     authorize @garden
     @plot = Plot.new
     @favorites = current_user.favorited_by_type('Crop')
+    ##
+    @crops = Crop.all
+    prefecture_hardiness(@garden)
+    @sowable_crops = []
+    @crops.each do |crop|
+      @hardiness_zone.each do |zone|
+        if (crop.min_hardiness_zone..crop.max_hardiness_zone).cover?(zone) && sowing_months?(crop) == true
+          @sowable_crops << crop.name
+        end
+      end
+    end
+    @hardiness_recommendation = @sowable_crops.uniq
+    ##
   end
 
   def new
@@ -44,4 +57,24 @@ class GardensController < ApplicationController
   def garden_params
     params.require(:garden).permit(:location, :height, :width, :garden)
   end
+
+  ##
+  def prefecture_hardiness(garden)
+    garden_prefecture = garden.location.split(',')[1].strip
+    serialized_prefectures = File.read("db/prefectures_hardiness_zones.json")
+    prefectures_list = JSON.parse(serialized_prefectures)
+    prefectures_list["prefectures"].each do |prefecture|
+      @hardiness_zone = prefecture["hardiness_zone"] if prefecture["name"] == garden_prefecture
+    end
+  end
+
+  def sowing_months?(crop)
+    @date = Date.today
+    @current_month = @date.strftime("%B")
+    crop_months = crop.sowing_months.split(",")
+    crop_months.each do |month|
+      return true if month.strip == @current_month
+    end
+  end
+  ##
 end
