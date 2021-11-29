@@ -7,6 +7,9 @@
         <div class="tile" id="<%= tile.id %>" data-plot-id="<%= tile.plot_id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'>
           <% if tile.plot_id.present? %>
             <%= image_tag tile.plot.crop.image_url %>
+            <% if tile.plot.crop.water_needs >= tile.plot.days_since_watering %>
+              <%= image_tag "droplet.png", class: "droplet" %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
