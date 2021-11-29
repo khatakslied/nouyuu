@@ -13,6 +13,7 @@ class GardensController < ApplicationController
     authorize @garden
     @plot = Plot.new
     @favorites = current_user.favorited_by_type('Crop')
+
     ## Added filter for location & season to pass to the form
     @crops = Crop.all
     if @garden.location.split(',')[-1].strip.downcase == 'japan' && @garden.location.split(',').count == 3
@@ -30,6 +31,9 @@ class GardensController < ApplicationController
       @hardiness_recommendation = @crops
     end
     ##
+
+    @tile = Tile.find(params[:tile_id]) if params[:tile_id]
+
   end
 
   def new
