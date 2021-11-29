@@ -1,10 +1,13 @@
-<% unless @weather_response['cod'] == '404' %>
-  <%= render "gardens/weather" %>
-<% else %>
-  <%= render "gardens/default_weather" %>
-<% end %>
 <div class="container" data-controller="tile-container">
-  <div id="selected-tile" data-tile-container-target="plot">
+  <div class="container-weather">
+    <% unless @weather_response['cod'] == '404' %>
+      <%= render "gardens/weather" %>
+    <% else %>
+      <%= render "gardens/default_weather" %>
+    <% end %>
+    <div id="selected-tile" data-tile-container-target="plot">
+      <small id="unselected-tile">Click on the tile</small>
+    </div>
   </div>
   <div class ="container-garden-perspective">
     <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
