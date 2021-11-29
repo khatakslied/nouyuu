@@ -7,6 +7,7 @@
 }
 
 .tile {
+  position: relative;
   height: 60px;
   background-image: url(tile.png);
   border: 1px solid $off-white;
@@ -16,6 +17,11 @@
   padding: 4px;
   img {
     width: 100%;
+  }
+  .droplet {
+  position: absolute;
+  width: 20px;
+  top: 5px;
   }
 }
 
