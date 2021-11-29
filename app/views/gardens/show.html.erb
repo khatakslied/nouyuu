@@ -1,5 +1,8 @@
-<%= render "gardens/weather" %>
-
+<% unless @weather_response['cod'] == '404' %>
+  <%= render "gardens/weather" %>
+<% else %>
+  <%= render "gardens/default_weather" %>
+<% end %>
 <div class="container" data-controller="tile-container">
   <div class ="container-garden-perspective">
     <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
