@@ -24,7 +24,6 @@ class GardensController < ApplicationController
     @garden = Garden.new(garden_params)
     authorize @garden
     @garden.user = current_user
-    @garden.location = params[:garden][:location].split(',')[0]
     if @garden.save!
       redirect_to garden_path(@garden)
     else
@@ -36,7 +35,7 @@ class GardensController < ApplicationController
 
   def weather_call(garden)
     uri = URI('https://api.openweathermap.org/data/2.5/weather')
-    params = { units: 'metric', q: garden.location, appid: ENV['WEATHER_API'] }
+    params = { units: 'metric', q: garden.location.split(',')[0], appid: ENV['WEATHER_API'] }
     uri.query = URI.encode_www_form(params)
     response = Net::HTTP.get_response(uri)
     @weather_response = JSON.parse(response.body)

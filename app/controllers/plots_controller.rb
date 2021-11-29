@@ -17,6 +17,8 @@ class PlotsController < ApplicationController
     @tiles = params[:plot][:tiles]
     @tile_ids = @tiles.split(',').map!(&:to_i)
     authorize @plot
+    # method to get the prefecture out of the garden
+    prefecture_hardiness(@garden)
     if @plot.save
       give_plot_id_to_tiles(@tile_ids, @plot)
       redirect_to garden_path(@garden)
@@ -39,5 +41,10 @@ class PlotsController < ApplicationController
       target_tile.plot_id = @plot_id
       target_tile.save
     end
+  end
+
+  def prefecture_hardiness(garden)
+    prefecture = garden.split(',')[1].strip
+    #use the json here and compare
   end
 end
