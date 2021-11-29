@@ -1,9 +1,13 @@
+.container-weather {
+  display: flex;
+  justify-content: space-between;
+}
 
 .card-weather {
   background-image: url(background-mint.png);
   background-size: contain;
   text-align: center;
-  width: 100%;
+  width: 50%;
   padding: 8px;
   img {
     width: 50px;

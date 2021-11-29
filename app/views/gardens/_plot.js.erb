@@ -1,0 +1,5 @@
+<div class='card-plot'>
+  <p><%= tile.plot.crop.name %></p>
+  <%= image_tag(tile.plot.crop.image_url) %>
+  <p><%= pluralize(tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i, 'days') %>  till harvest</p>
+</div>
