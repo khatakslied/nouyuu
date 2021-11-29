@@ -3,7 +3,7 @@ class Crop < ApplicationRecord
   has_many :tiles, through: :plots
   has_many :plots
   validates :name, presence: true, uniqueness: true
-  PLANT_FAMILIES = ['Amaranthaceae', 'Asteraceae', 'Brassicaceae', 'Cucurbitaceae', 'Fabaceae', 'Lamiaceae', 'Liliaceae', 'Malvaceae', 'Poaceae', 'Rosaceae', 'Solanaceae', 'Umbelliferae', 'Zingiberaceae']
+  PLANT_FAMILIES = ['Amaranthaceae', 'Asparagaceae', 'Asteraceae', 'Brassicaceae', 'Convolvulaceae', 'Cucurbitaceae', 'Ericaceae','Fabaceae', 'Grossulariaceae', 'Lamiaceae', 'Liliaceae', 'Malvaceae', 'Passifloraceae','Poaceae', 'Rosaceae', 'Solanaceae', 'Umbelliferae', 'Zingiberaceae']
   validates :plant_family, presence: true, inclusion: { in: PLANT_FAMILIES }
   validates :description, presence: true, length: { maximum: 300 }
   validates :image_url, presence: true
@@ -20,6 +20,6 @@ class Crop < ApplicationRecord
   validates :max_hardiness_zone, presence: true, numericality: { only_integer: true }
   validates :min_hardiness_zone, presence: true, numericality: { only_integer: true }
   validates :water_needs, presence: true, numericality: { only_integer: true }
-  CROP_TYPES = ['Bulb Vegetable', 'Flower Vegetable', 'Fruit Vegetable', 'Leafy Vegetable', 'Pod Vegetable', 'Root Vegetable', 'Stem Vegetable', 'Tuber Vegetable']
+  CROP_TYPES = ['Bulb', 'Flower', 'Fruit', 'Leafy', 'Rhizome', 'Root', 'Stem', 'Tuber']
   validates :crop_type, presence: true, inclusion: { in: CROP_TYPES }
 end
