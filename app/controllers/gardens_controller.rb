@@ -15,17 +15,23 @@ class GardensController < ApplicationController
     @favorites = current_user.favorited_by_type('Crop')
     ## Added filter for location & season to pass to the form
     @crops = Crop.all
-    prefecture_hardiness(@garden)
-    @sowable_crops = []
-    @crops.each do |crop|
-      @hardiness_zone.each do |zone|
-        if (crop.min_hardiness_zone..crop.max_hardiness_zone).cover?(zone) && sowing_months?(crop) == true
-          @sowable_crops << crop
+    #
+    if @garden.location.split(',')[-1].strip.downcase == 'japan' && @garden.location.split(',').count == 3
+
+      prefecture_hardiness(@garden)
+      @sowable_crops = []
+      @crops.each do |crop|
+        @hardiness_zone.each do |zone|
+          if (crop.min_hardiness_zone..crop.max_hardiness_zone).cover?(zone) && sowing_months?(crop) == true
+            @sowable_crops << crop
+          end
         end
       end
+      @hardiness_recommendation = @sowable_crops.uniq
+      ##
+    else
+      @hardiness_recommendation = @crops
     end
-    @hardiness_recommendation = @sowable_crops.uniq
-    ##
   end
 
   def new
