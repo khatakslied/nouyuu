@@ -20,7 +20,7 @@ class GardensController < ApplicationController
     @crops.each do |crop|
       @hardiness_zone.each do |zone|
         if (crop.min_hardiness_zone..crop.max_hardiness_zone).cover?(zone) && sowing_months?(crop) == true
-          @sowable_crops << crop.name
+          @sowable_crops << crop
         end
       end
     end
