@@ -4,14 +4,20 @@
   <%= render "gardens/default_weather" %>
 <% end %>
 <div class="container" data-controller="tile-container">
+  <div id="selected-tile" data-tile-container-target="plot">
+  </div>
   <div class ="container-garden-perspective">
     <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
       <% @tiles.each do |tile| %>
-        <div class="tile" id="<%= tile.id %>" data-plot-id="<%= tile.plot_id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'>
-          <% if tile.plot_id.present? %>
-            <%= image_tag tile.plot.crop.image_url %>
-          <% end %>
-        </div>
+        <%= form_with(url: garden_path(@garden), method: :get) do |f| %>
+          <%= f.hidden_field(:tile_id, value: tile.id) %>
+          <%= f.submit "Submit", class: 'd-none', data: { tile_id: "tile-#{tile.id}" } %>
+          <div class="tile" id="<%= tile.id %>" data-plot-id="<%= tile.plot_id %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'>
+            <% if tile.plot_id.present? %>
+              <%= image_tag tile.plot.crop.image_url %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <div class="form-container-gardens">

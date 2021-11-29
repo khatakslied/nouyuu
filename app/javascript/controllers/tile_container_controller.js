@@ -3,19 +3,24 @@ import { Controller } from "stimulus"
 const idSet = new Set();
 
 export default class extends Controller {
-  static targets = ["tile", "input", "link", "form"]
+  static targets = ["tile", "plot", "input", "link", "form"]
+
+  // connect() {
+  // }
 
   changeClass(event) {
     if (event.currentTarget.dataset.plotId) {
       this.selectPlot(event)
+      document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
     } else {
       this.selectFree(event)
+      document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
     }
   }
 
   selectFree(event) {
     event.currentTarget.classList.toggle('selected')
-    if (idSet.has(event.currentTarget.id)){
+    if (idSet.has(event.currentTarget.id)) {
       idSet.delete(event.currentTarget.id)
     } else {
       idSet.add(event.currentTarget.id)
@@ -28,7 +33,7 @@ export default class extends Controller {
     // Can we do this with Stimulus?
     const selectedTiles = document.getElementsByClassName('selected');
     while (selectedTiles.length > 0) {
-    selectedTiles[0].classList.remove('selected');
+      selectedTiles[0].classList.remove('selected');
     }
     console.log(selectedTiles)
     const tiles = document.querySelectorAll(`div[data-plot-id='${event.currentTarget.dataset.plotId}']`);

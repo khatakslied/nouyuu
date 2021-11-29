@@ -13,6 +13,7 @@ class GardensController < ApplicationController
     authorize @garden
     @plot = Plot.new
     @favorites = current_user.favorited_by_type('Crop')
+    @tile = Tile.find(params[:tile_id]) if params[:tile_id]
   end
 
   def new
