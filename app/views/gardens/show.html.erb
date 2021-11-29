@@ -23,11 +23,8 @@
     <div class="d-none form-container-gardens" data-tile-container-target="form">
       <%= simple_form_for [@garden, @plot] do |f| %>
         <%= f.input :name %>
-        <%= f.input :crop, as: :select, collection: @favorites, label: "Selected crops" %>
+        <%= f.input :crop, as: :select, collection: @favorites + @hardiness_recommendation, label: "Selected crops & Recommendations (by Location & Season)" %>
         <%= f.input :tiles, :as => :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
-        <%#= testing hardiness & sowing months crops %>
-        <%= f.input :crop, as: :select, collection: @hardiness_recommendation, label: "Recommendations by location & season" %>
-        <%#=  %>
         <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
       <% end %>
     </div>

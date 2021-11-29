@@ -13,7 +13,7 @@ class GardensController < ApplicationController
     authorize @garden
     @plot = Plot.new
     @favorites = current_user.favorited_by_type('Crop')
-    ##
+    ## Added filter for location & season to pass to the form
     @crops = Crop.all
     prefecture_hardiness(@garden)
     @sowable_crops = []
@@ -58,12 +58,13 @@ class GardensController < ApplicationController
     params.require(:garden).permit(:location, :height, :width, :garden)
   end
 
-  ##
+  ## Methods to get the hardiness zones and the sowing months
   def prefecture_hardiness(garden)
     garden_prefecture = garden.location.split(',')[1].strip
     serialized_prefectures = File.read("db/prefectures_hardiness_zones.json")
     prefectures_list = JSON.parse(serialized_prefectures)
     prefectures_list["prefectures"].each do |prefecture|
+      #Currently only works for Japan (breaks if there is no prefecture)
       @hardiness_zone = prefecture["hardiness_zone"] if prefecture["name"] == garden_prefecture
     end
   end
