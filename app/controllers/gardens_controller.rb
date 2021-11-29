@@ -24,6 +24,7 @@ class GardensController < ApplicationController
     @garden = Garden.new(garden_params)
     authorize @garden
     @garden.user = current_user
+    @garden.location = params[:garden][:location].split(',')[0]
     if @garden.save!
       redirect_to garden_path(@garden)
     else
@@ -42,6 +43,6 @@ class GardensController < ApplicationController
   end
 
   def garden_params
-    params.require(:garden).permit(:location, :height, :width)
+    params.require(:garden).permit(:location, :height, :width, :garden)
   end
 end
