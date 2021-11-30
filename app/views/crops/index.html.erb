@@ -1,7 +1,7 @@
 <div class="container">
   <div data-controller="mark-crops" data-mark-crops-number-value=<%= @favorite_crops %>>
     <%= link_to new_garden_path, data: { mark_crops_target: "button" }, class: "btn btn-primary w-100 btn-sticky-top" do %>
-      <%= "Plant Seeds #{@favorite_crops}" %>
+      <%= "Plant Favorites: (#{@favorite_crops})" %>
     <% end %>
     <%= render 'crops', crops: @crops %>
   </div>
