@@ -18,7 +18,7 @@ export default class extends Controller {
   }
 
   numberValueChanged() {
-    this.buttonTarget.innerHTML = `Plant seeds ${this.numberValue}`
+    this.buttonTarget.innerHTML = `Plant Favorites: (${this.numberValue})`
     if (this.numberValue === 0) {
       this.buttonTarget.classList.add('d-none')
     } else {
