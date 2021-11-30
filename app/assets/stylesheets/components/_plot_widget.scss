@@ -1,0 +1,14 @@
+// For garden widget next to the weather. Weather and plot are both inside the container-weather
+
+.card-plot {
+  background-image: url(background-mint.png);
+  background-size: contain;
+  text-align: center;
+  width: 50%;
+  padding: 8px;
+  img {
+    width: 50px;
+    background-color: $mint;
+    border-radius: 16px;
+  }
+}

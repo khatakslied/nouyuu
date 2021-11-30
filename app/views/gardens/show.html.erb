@@ -1,20 +1,30 @@
-<% unless @weather_response['cod'] == '404' %>
-  <%= render "gardens/weather" %>
-<% else %>
-  <%= render "gardens/default_weather" %>
-<% end %>
 <div class="container" data-controller="tile-container">
+  <div class="container-weather">
+    <% unless @weather_response['cod'] == '404' %>
+      <%= render "gardens/weather" %>
+    <% else %>
+      <%= render "gardens/default_weather" %>
+    <% end %>
+    <div id="selected-tile" data-tile-container-target="plot">
+      <small id="unselected-tile">Click on the tile</small>
+    </div>
+  </div>
   <div class ="container-garden-perspective">
     <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
       <% @tiles.each do |tile| %>
-        <div class="tile" id="<%= tile.id %>" data-plot-id="<%= tile.plot_id %>" data-crop-name="<%= tile.plot.crop.name if tile.plot_id.present? %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'>
-          <% if tile.plot_id.present? %>
-            <%= image_tag tile.plot.crop.image_url %>
-            <% if tile.plot.crop.water_needs >= tile.plot.days_since_watering %>
+        <%= form_with(url: garden_path(@garden), method: :get) do |f| %>
+          <%= f.hidden_field(:tile_id, value: tile.id) %>
+          <%= f.submit "Submit", class: 'd-none', data: { tile_id: "tile-#{tile.id}" } %>
+          <div class="tile" id="<%= tile.id %>" data-plot-id="<%= tile.plot_id %>" data-crop-name="<%= tile.plot.crop.name if tile.plot_id.present? %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'>
+            <% if tile.plot_id.present? %>
+              <%= image_tag tile.plot.crop.image_url %>
+      <% if tile.plot.crop.water_needs >= tile.plot.days_since_watering %>
               <%= image_tag "droplet.png", class: "droplet" %>
             <% end %>
-          <% end %>
-        </div>
+      <% end %>
+          </div>
+        <% end %>
+
       <% end %>
     </div>
     <div class="form-container-gardens">
@@ -23,9 +33,8 @@
     <div class="d-none form-container-gardens" data-tile-container-target="form">
       <%= simple_form_for [@garden, @plot] do |f| %>
         <%= f.input :name %>
-        <%= f.input :crop, as: :select, collection: @favorites, label: "Selected crops" %>
+        <%= f.input :crop, as: :select, collection: @favorites + @hardiness_recommendation, label: "Selected crops & Recommendations (by Location & Season)" %>
         <%= f.input :tiles, :as => :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
-        <%#= NEED TO ADD FAVORITED CROPS HERE %>
         <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
       <% end %>
     </div>
