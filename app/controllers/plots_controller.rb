@@ -28,6 +28,7 @@ class PlotsController < ApplicationController
 
   def update
     @plot = Plot.find(params[:plot_id])
+    authorize @plot
   end
 
   private

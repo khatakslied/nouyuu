@@ -3,7 +3,7 @@ import { Controller } from "stimulus"
 const idSet = new Set();
 
 export default class extends Controller {
-  static targets = ["tile", "plot", "input", "form"]
+  static targets = ["tile", "plot", "input", "form", "droplet"]
 
   connect() {
 
@@ -43,5 +43,9 @@ export default class extends Controller {
     tiles.forEach(tile => {
       tile.classList.toggle('selected');
     });
+  }
+
+  water(event) {
+    document.querySelector(`input[data-water-id=water-${event.currentTarget.dataset.waterId}]`).click()
   }
 }
