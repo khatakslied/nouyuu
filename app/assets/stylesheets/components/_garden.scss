@@ -4,6 +4,7 @@
   margin: 32px 0;
   justify-content: center;
   transform: rotateX(45deg);
+  padding-top: 60px;
 }
 
 .tile {
@@ -14,9 +15,14 @@
   border-radius: 4px;
   display: flex;
   align-items: center;
-  padding: 4px;
   img {
     width: 100%;
+  }
+  canvas {
+    position: absolute;
+    bottom: 0;
+    width: 60px !important;
+    height: 120px !important;
   }
   .droplet {
   position: absolute;
