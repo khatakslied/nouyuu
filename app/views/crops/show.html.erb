@@ -5,6 +5,13 @@
     </div>
   <% end %>
   <div class="card-crops-show">
+    <div class="favorite-star-show" data-controller="mark-favorite-crop">
+      <%= link_to toggle_favorite_crop_path(@crop), remote: true, method: "PATCH" do %>
+        <div class="<%= current_user.favorited?(@crop) ? "star marked" : "star" %>" data-action="click->mark-favorite-crop#mark">
+          <i class="fas fa-star"></i>
+        </div>
+      <% end %>
+    </div>
     <h1><%= @crop.name %></h1>
     <div class="card-crops-show-img">
       <%= image_tag @crop.image_url %>
@@ -42,7 +49,7 @@
         <p>Sowing Months:</p>
         <p><%= @crop.sowing_months %></p>
       </div>
-    <%#= this one should be another div with water use %>
+      <%#= this one should be another div with water use %>
     </div>
   </div>
 </div>
