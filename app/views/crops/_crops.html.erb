@@ -1,12 +1,12 @@
 <% @crops.each do |crop| %>
-  <div class="crop-index-card">
+  <div class="card-crop-index">
     <%= link_to toggle_favorite_crop_path(crop), remote: true, method: "PATCH" do %>
       <div class="<%= current_user.favorited?(crop) ? "star marked" : "star" %>" data-action="click->mark-crops#mark">
         <i class="fas fa-star"></i>
       </div>
     <% end %>
-    <div class="crop-index-card-body">
-      <div class="crop-index-card-text">
+    <div class="card-crop-index-body">
+      <div class="card-crop-index-text">
         <h2><%= link_to crop.name, crop_path(crop) %></h2>
         <p><%= crop.plant_family %></p>
         <%= link_to crop_path(crop) do %>
