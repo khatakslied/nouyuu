@@ -2,4 +2,9 @@
   <%= image_tag(tile.plot.crop.image_url) %>
   <p><%= tile.plot.crop.name %></p>
   <p><%= pluralize(tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i, 'days') %> till harvest</p>
+  <%= form_with(url: plot_path(tile.plot), method: :patch) do |f| %>
+    <%= f.hidden_field(:plot_id, value: tile.plot.id) %>
+    <%= f.submit %>
+  <% end %>
+  <%= image_tag "droplet.png", class: "droplet" %>
 </div>

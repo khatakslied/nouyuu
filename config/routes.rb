@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :gardens, only: [:show, :index, :new, :create] do
     resources :plots, only: [:new, :create]
   end
+  resources :plots, only: [:update]
 end

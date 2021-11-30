@@ -3,22 +3,20 @@ import { Controller } from "stimulus"
 const idSet = new Set();
 
 export default class extends Controller {
-  static targets = ["tile", "plot", "input", "link", "form", "button"]
+  static targets = ["tile", "plot", "input", "form"]
 
   connect() {
-    console.log(this.buttonTarget)
+
   }
 
   changeClass(event) {
     if (event.currentTarget.dataset.plotId) {
       this.selectPlot(event)
       document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
-      this.buttonTarget.classList.add('d-none')
       this.formTarget.classList.add('d-none')
     } else {
       this.selectFree(event)
       document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
-      this.buttonTarget.classList.remove('d-none')
       this.formTarget.classList.remove('d-none')
     }
   }
@@ -45,10 +43,5 @@ export default class extends Controller {
     tiles.forEach(tile => {
       tile.classList.toggle('selected');
     });
-  }
-
-
-  displayForm() {
-    this.formTarget.classList.toggle('d-none')
   }
 }
