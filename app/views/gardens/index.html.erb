@@ -1,16 +1,16 @@
 <% @gardens.each do |garden| %>
   <%= link_to garden_path(garden) do %>
-    <div class="garden-card">
-      <div class="garden-card-header">
-        <div class="garden-card-title">
+    <div class="card-gardens-index">
+      <div class="card-gardens-index-header">
+        <div class="card-gardens-index-title">
           <h2><%= garden.location.capitalize %> Garden</h2>
         </div>
         <p><%= number_with_precision(garden.height, strip_insignificant_zeros: true) %>  x <%= number_with_precision(garden.width, strip_insignificant_zeros: true) %> meters</p>
         <p><%= 100 - (((garden.tiles.where.not(plot_id: nil).count) * 100) / garden.tiles.count) %>% of unplanted space</p>
       </div>
       <%#= another container with a diff color %>
-      <div class="garden-card-details">
-        <div class="garden-card-title">
+      <div class="card-gardens-index-details">
+        <div class="card-gardens-index-title">
           <h5>Currently Growing:</h5>
         </div>
         <% garden.plots.each do |plot| %>

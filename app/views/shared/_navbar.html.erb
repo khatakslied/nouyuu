@@ -20,9 +20,6 @@
         <li class="nav-item">
           <%= link_to "All Crops", crops_path, class: "nav-link" %>
         </li>
-        <li class="nav-item active">
-          <%= link_to "Favorites Crops (#{current_user.favorited_by_type('Crop').count})", favorite_crops_path, class: "nav-link" %>
-        </li>
         <li class="nav-item dropdown">
           <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

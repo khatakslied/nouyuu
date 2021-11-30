@@ -1,22 +1,8 @@
 <div class="container">
-  <div data-controller="filter-crops">
-    <%= form_with url: crops_path, method: :get, html: { class: 'd-none mb-4 input-group', data: { filter_cropes_target: 'form', action: "submit->filter-crops#update" } } do |f| %>
-      <%= f.text_field :query,
-                        class: "form-control",
-                        placeholder: 'city',
-                        value: params[:query],
-                        data: {
-                          filter_cropes_target: "searchInput"
-                        }
-                        %>
-      <%= button_tag(class: "btn btn-primary") do %>
-        <i class="fas fa-search"></i>
-      <% end %>
+  <div data-controller="mark-crops" data-mark-crops-number-value=<%= @favorite_crops %>>
+    <%= link_to new_garden_path, data: { mark_crops_target: "button" }, class: "btn btn-primary w-100 btn-sticky-top" do %>
+      <%= "Plant Seeds #{@favorite_crops}" %>
     <% end %>
-    <div data-controller="mark-crops" data-mark-crops-number-value=<%= @favorite_crops %>>
-      <%= link_to new_garden_path, data: { mark_crops_target: "button" }, class: "btn btn-primary w-100 btn-sticky-top" do %>
-        <%= "Plant Seeds #{@favorite_crops}" %>
-      <% end %>
-      <%= render 'crop', crops: @crops %>
-    </div>
+    <%= render 'crops', crops: @crops %>
   </div>
+</div>

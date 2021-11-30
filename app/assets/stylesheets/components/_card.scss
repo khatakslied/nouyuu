@@ -7,6 +7,45 @@
 
 // Crops#Index cards. Start with... .card-crops-index-
 
+.card-crop-index {
+  position: relative;
+  background-color: $mint;
+  border-radius: 16px;
+  margin: 8px 0;
+}
+
+.card-crop-index-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  padding: 0px 16px;
+  img {
+    width: 120px;
+    object-fit: contain;
+  }
+}
+
+.star {
+position: absolute;
+z-index: 2;
+top: 8px;
+left: 12px;
+color: $off-white;
+ i {
+   font-size: 24px;
+ }
+}
+
+.marked {
+color: $burgundy !important;
+}
+
+.card-crop-index-text {
+  margin-top: 32px;
+}
+
+
 // Crops#Show cards. Start with... .card-crops-show-
 
 .card-crops-show-body {
@@ -96,9 +135,50 @@
   z-index: 2;
 }
 
-// Crops#Favorite cards. Start with... .card-crops-fav-
-
 // Gardens#Index cards. Start with... .card-gardens-index-
+
+.card-gardens-index {
+  position: relative;
+  background-color: $weak-yolk;
+  border-radius: 16px;
+  padding: 8px 16px;
+  margin: 8px;
+}
+
+.card-gardens-index-title {
+  text-align: center;
+}
+
+.card-gardens-index-header {
+  background-color: $moss;
+  background-image: url('vines.png');
+  background-size: cover;
+  border-radius: 16px;
+  padding: 8px 16px;
+  margin-top: 8px;
+  h2 {
+    color: $off-white;
+    font-weight: bold;
+  }
+  p {
+    margin: 4px 8px;
+    color: $off-white;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
+
+.card-gardens-index-details {
+  margin: 8px 0px;
+  padding: 8px 16px;
+  p {
+    margin: 4px 8px;
+  }
+  img {
+    width: 30px;
+    object-fit: contain;
+  }
+}
 
 // Other cards. Start with... .card-other-
 
