@@ -26,6 +26,10 @@ class PlotsController < ApplicationController
     end
   end
 
+  def update
+    @plot = Plot.find(params[:plot_id])
+  end
+
   private
 
   def plot_params

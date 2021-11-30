@@ -5,10 +5,24 @@
     <% else %>
       <%= render "gardens/default_weather" %>
     <% end %>
-    <div id="selected-tile" data-tile-container-target="plot">
-      <small id="unselected-tile">Click on the tile</small>
+    <div class="card-weather">
+      <small id="unselected-tile" class="text-center">Select the tile</small>
+      <div class="d-flex justify-content-center">
+      <%# Where the plot will is rendered %>
+        <div id="selected-tile" data-tile-container-target="plot"></div>
+      </div>
+      <div class="d-none form-container-gardens" data-tile-container-target="form">
+        <%= simple_form_for [@garden, @plot] do |f| %>
+          <%= f.input :crop, as: :select, collection: (@favorites + @hardiness_recommendation).sort { |a, b| a.name<=>b.name }, label: "Recommended" %>
+          <%= f.input :tiles, :as => :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
+          <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
+        <% end %>
+      </div>
     </div>
   </div>
+
+
+
   <div class ="container-garden-perspective">
     <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
       <% @tiles.each do |tile| %>
@@ -18,24 +32,12 @@
           <div class="tile" id="<%= tile.id %>" data-plot-id="<%= tile.plot_id %>" data-crop-name="<%= tile.plot.crop.name if tile.plot_id.present? %>" data-tile-container-target="tile" data-action='click->tile-container#changeClass'>
             <% if tile.plot_id.present? %>
               <%= image_tag tile.plot.crop.image_url %>
-      <% if tile.plot.crop.water_needs >= tile.plot.days_since_watering %>
-              <%= image_tag "droplet.png", class: "droplet" %>
+              <% if tile.plot.crop.water_needs >= tile.plot.days_since_watering %>
+                <%= image_tag "droplet.png", class: "droplet" %>
+              <% end %>
             <% end %>
-      <% end %>
           </div>
         <% end %>
-
-      <% end %>
-    </div>
-    <div class="form-container-gardens">
-      <div class="btn btn-gardens-add-plot" data-tile-container-target="link" data-action='click->tile-container#displayForm'>Add crops to plot</div>
-    </div>
-    <div class="d-none form-container-gardens" data-tile-container-target="form">
-      <%= simple_form_for [@garden, @plot] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :crop, as: :select, collection: @favorites + @hardiness_recommendation, label: "Selected crops & Recommendations (by Location & Season)" %>
-        <%= f.input :tiles, :as => :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
-        <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
       <% end %>
     </div>
   </div>
