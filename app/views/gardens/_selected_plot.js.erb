@@ -2,9 +2,11 @@
   <%= image_tag(tile.plot.crop.image_url) %>
   <p><%= tile.plot.crop.name %></p>
   <p><%= pluralize(tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i, 'days') %> till harvest</p>
-  <%= form_with(url: plot_path(tile.plot), method: :patch) do |f| %>
+  <%= form_with(url: plot_path(tile.plot), method: 'PATCH') do |f| %>
     <%= f.hidden_field(:plot_id, value: tile.plot.id) %>
-    <%= f.submit %>
+    <%= f.submit "Submit", class: 'd-none', data: { water_id: "water-#{tile.id}" } %>
   <% end %>
-  <%= image_tag "droplet.png", class: "droplet" %>
+  <% if tile.plot.crop.water_needs >= tile.plot.days_since_watering %>
+    <%= image_tag "droplet.png", class: "droplet", data: { action: "click->tile-container#water", water_id: "#{tile.id}" } %>
+  <% end %>
 </div>

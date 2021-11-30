@@ -28,6 +28,8 @@ class PlotsController < ApplicationController
 
   def update
     @plot = Plot.find(params[:plot_id])
+    authorize @plot
+    @plot.update(days_since_watering: @plot.crop.water_needs + 1)
   end
 
   private
