@@ -6,5 +6,7 @@
     <%= f.hidden_field(:plot_id, value: tile.plot.id) %>
     <%= f.submit "Submit", class: 'd-none', data: { water_id: "water-#{tile.id}" } %>
   <% end %>
-  <%= image_tag "droplet.png", class: "droplet", data: { action: "click->tile-container#water", water_id: "#{tile.id}" } %>
+  <% if tile.plot.crop.water_needs >= tile.plot.days_since_watering %>
+    <%= image_tag "droplet.png", class: "droplet", data: { action: "click->tile-container#water", water_id: "#{tile.id}" } %>
+  <% end %>
 </div>
