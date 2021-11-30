@@ -2,15 +2,6 @@ class CropsController < ApplicationController
   def index
     @crops = policy_scope(Crop).all
     @favorite_crops = current_user.favorites_by_type('Crop').count
-
-    # if params[:query].present?
-    #   @cropes = Crop.where('name ILIKE ?', "%#{params[:query]}%")
-    # end
-
-    # respond_to do |format|
-    #   format.html # default Rails behavior (render :index)
-    #   format.text { render partial: 'cropes/crop', locals: { crops: @crops }, formats: [:html] }
-    # end
   end
 
   def show
