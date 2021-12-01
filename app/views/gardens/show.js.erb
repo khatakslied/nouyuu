@@ -1,1 +1,1 @@
-document.getElementById("selected-tile").innerHTML = "<%= (j render 'selected_plot', tile: @tile, days_left: @days_left ) if @tile&.plot&.id %>"
+document.getElementById("selected-tile").innerHTML = "<%= (j render 'selected_plot', tile: @tile, days_left: @days_left, perennials: @perennials ) if @tile&.plot&.id %>"
