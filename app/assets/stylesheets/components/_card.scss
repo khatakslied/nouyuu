@@ -74,7 +74,9 @@ color: $burgundy !important;
 
 .favorite-star-show {
   position: absolute;
-  left: 295px;
+  z-index: 2;
+  left: 296px;
+  top: 8px;
 }
 
 .card-crops-show {
