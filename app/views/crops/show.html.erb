@@ -20,12 +20,6 @@
       <h5>Plant Family: </h5>
       <p><em><%= @crop.plant_family %></em></p>
     </div>
-    <div class="card-crops-show-description">
-      <h5>Description: </h5>
-      <p><%= @crop.description %></p>
-    </div>
-    <%#= put recommended stuff together in another color %>
-    <%#= add the recommended sowing months as well %>
     <div class="card-crops-show-white-container">
       <h5>Needs</h5>
       <div class="card-crops-show-bottom-details">
@@ -39,7 +33,11 @@
       <h5>Recommendations</h5>
       <div class="card-crops-show-bottom-details">
         <p>Sun Exposure:</p>
-        <p><%= @crop.sun_exposure %></p>
+        <% if @crop.sun_exposure == "Full Sun" %>
+          <p><i class="fas fa-sun"></i></p>
+        <% else %>
+          <p><i class="fas fa-cloud-sun"></i></p>
+        <% end %>
       </div>
       <div class="card-crops-show-bottom-details">
         <p>Crop Spacing:</p>
@@ -49,7 +47,10 @@
         <p>Sowing Months:</p>
         <p><%= @crop.sowing_months %></p>
       </div>
-      <%#= this one should be another div with water use %>
+    </div>
+    <div class="card-crops-show-description">
+      <h5>Description: </h5>
+      <p><%= @crop.description %></p>
     </div>
   </div>
 </div>
