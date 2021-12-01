@@ -23,7 +23,7 @@
         <div class="card-garden-todo">
           <%= image_tag plot.crop.image_url %>
           <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
-          <% if (5 >= plot.crop.water_needs) %>
+          <% if ((Time.now.to_date - plot.days_since_watering.to_date).to_i >= plot.crop.water_needs) %>
             <i class="fas fa-tint"></i>
           <% end %>
         </div>
