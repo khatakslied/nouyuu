@@ -21,6 +21,9 @@ export default class extends Controller {
   }
 
   selectFree(event) {
+    // const selectedTiles = document.getElementsByClassName('tile')
+    // console.log(selectedTiles.filter(tile => isNaN(tile.dataset.plotId)))
+
     event.currentTarget.classList.toggle('selected')
     if (idSet.has(event.currentTarget.id)) {
       idSet.delete(event.currentTarget.id)
@@ -37,7 +40,6 @@ export default class extends Controller {
     while (selectedTiles.length > 0) {
       selectedTiles[0].classList.remove('selected');
     }
-    console.log(selectedTiles)
     const tiles = document.querySelectorAll(`div[data-plot-id='${event.currentTarget.dataset.plotId}']`);
     tiles.forEach(tile => {
       tile.classList.toggle('selected');

@@ -12,6 +12,12 @@ class GardensController < ApplicationController
       garden = Garden.find(params[:id])
       authorize garden
       @tile = garden.tiles.find(params[:tile_id])
+      @days_left = if @tile.plot
+        @tile.plot.crop.min_days_to_harvest - (Date.today.to_date - @tile.plot.created_at.to_date).to_i
+        else
+          nil # in case something breaks => "0"
+        end
+      @perennials = ["Ericaceae", "Passifloraceae", "Lamiaceae", "Asparagaceae", "Rosaceae", "Grossulariaceae"]
     else
       @garden = Garden.find(params[:id])
       weather_call(@garden)

@@ -113,7 +113,7 @@ color: $burgundy !important;
   background-color: $eggshell;
   border-radius: 16px;
   padding: 1px 15px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   h5 {
     padding-top: 8px;
     margin-bottom: 1vh;
@@ -232,6 +232,8 @@ color: $burgundy !important;
   }
   img {
     width: 50px;
+    height: 50px;
+    object-fit: contain;
     background-color: $mint;
     border-radius: 16px;
   }
