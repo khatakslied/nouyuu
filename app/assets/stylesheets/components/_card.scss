@@ -229,3 +229,39 @@ color: $burgundy !important;
   margin-top: 16px;
   background-color: $weak-yolk;
 }
+
+// For todo list
+
+.card-garden-todo {
+  position: relative;
+  border-radius: 8px;
+  background-color:  #b2c4ffd1;
+  margin: 8px;
+  opacity: 0.9;
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  img {
+    margin: 16px;
+    margin-right: 64px;
+    width: 30px;
+    object-fit: contain;
+  }
+
+  p {
+    display: inline-block;
+    margin: 4px 8px;
+    text-align: right;
+  }
+
+  .fas {
+    position: absolute;
+    color: $off-white;
+    right: 16px;
+    top: 16px;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+}

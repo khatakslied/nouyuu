@@ -11,17 +11,24 @@
         <p><%= number_with_precision(garden.height, strip_insignificant_zeros: true) %>  x <%= number_with_precision(garden.width, strip_insignificant_zeros: true) %> meters</p>
         <p><%= 100 - (((garden.tiles.where.not(plot_id: nil).count) * 100) / garden.tiles.count) %>% of unplanted space</p>
       </div>
-      <div class="card-gardens-index-details">
+      <div class="garden-todo-container">
         <div class="text-center">
           <h3>Currently Growing:</h3>
         </div>
-        <% garden.plots.each do |plot| %>
-          <div class="d-flex">
-            <%= image_tag plot.crop.image_url %>
-            <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
-          </div>
-        <% end %>
+        <div class="d-flex justify-content-around">
+          <small><i class="fas fa-tint"> - water your plants</i></small>
+          <small><i class="far fa-hand-rock"></i> - harvest now</i></small>
       </div>
+      <% garden.plots.each do |plot| %>
+        <div class="card-garden-todo">
+          <%= image_tag plot.crop.image_url %>
+          <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
+          <% if (5 >= plot.crop.water_needs) %>
+            <i class="fas fa-tint"></i>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+<% end %>
 <% end %>
