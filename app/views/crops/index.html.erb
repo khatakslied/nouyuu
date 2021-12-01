@@ -3,6 +3,7 @@
     <%= link_to new_garden_path, data: { mark_crops_target: "button" }, class: "btn btn-primary w-100 btn-sticky-top" do %>
       <%= "Plant Favorites: (#{@favorite_crops})" %>
     <% end %>
+    <%= render 'search_bar_crops', crops: @crops %>
     <%= render 'crops', crops: @crops %>
   </div>
 </div>

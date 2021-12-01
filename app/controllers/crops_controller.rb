@@ -1,6 +1,11 @@
 class CropsController < ApplicationController
   def index
-    @crops = policy_scope(Crop).all
+    @crops =
+      if params[:query].present?
+        policy_scope(Crop.search_by_name_and_sowing_months(params[:query]))
+      else
+        policy_scope(Crop).all
+      end
     @favorite_crops = current_user.favorites_by_type('Crop').count
   end
 
