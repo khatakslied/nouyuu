@@ -1,5 +1,11 @@
 class Crop < ApplicationRecord
   acts_as_favoritable
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_sowing_months,
+    against: [ :name, :sowing_months ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
   has_many :tiles, through: :plots
   has_many :plots
   validates :name, presence: true, uniqueness: true
