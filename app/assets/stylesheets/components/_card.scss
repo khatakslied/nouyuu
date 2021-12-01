@@ -89,6 +89,20 @@ color: $burgundy !important;
   }
 }
 
+.card-crops-show-plant-perennial {
+    padding: 3px;
+    height: 28px;
+    border-radius: 16px;
+    background-color: $weak-yolk;
+    padding: 4px 10px;
+    p {
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0px;
+    }
+}
+
 .card-crops-show-img{
   display: flex;
   justify-content: center;
@@ -110,9 +124,18 @@ color: $burgundy !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 15px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
   p {
     margin-bottom: 0px;
+  }
+  h5 {
+    margin-bottom: 8px;
+  }
+  .crop-plant-family {
+    margin-right: 16px;
   }
 }
 
