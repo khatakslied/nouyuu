@@ -7,33 +7,38 @@ class GardensController < ApplicationController
   end
 
   def show
-    @garden = Garden.find(params[:id])
-    weather_call(@garden)
-    @tiles = @garden.tiles.order(id: :asc)
-    authorize @garden
-    @plot = Plot.new
-    @favorites = current_user.favorited_by_type('Crop')
 
-    ## Added filter for location & season to pass to the form
-    @crops = Crop.all
-    if @garden.location.split(',')[-1].strip.downcase == 'japan' && @garden.location.split(',').count == 3
-      prefecture_hardiness(@garden)
-      @sowable_crops = []
-      @crops.each do |crop|
-        @hardiness_zone.each do |zone|
-          if (crop.min_hardiness_zone..crop.max_hardiness_zone).cover?(zone) && sowing_months?(crop) == true
-            @sowable_crops << crop
+    if params[:tile_id]
+      garden = Garden.find(params[:id])
+      authorize garden
+
+      @tile = garden.tiles.find(params[:tile_id])
+    else
+      @garden = Garden.find(params[:id])
+      weather_call(@garden)
+      @tiles = @garden.tiles.order(id: :asc)
+      authorize @garden
+      @plot = Plot.new
+      @favorites = current_user.favorited_by_type('Crop')
+
+      ## Added filter for location & season to pass to the form
+      @crops = Crop.all
+      if @garden.location.split(',')[-1].strip.downcase == 'japan' && @garden.location.split(',').count == 3
+        prefecture_hardiness(@garden)
+        @sowable_crops = []
+        @crops.each do |crop|
+          @hardiness_zone.each do |zone|
+            if (crop.min_hardiness_zone..crop.max_hardiness_zone).cover?(zone) && sowing_months?(crop) == true
+              @sowable_crops << crop
+            end
           end
         end
+        @hardiness_recommendation = @sowable_crops.uniq
+      else
+        @hardiness_recommendation = @crops
       end
-      @hardiness_recommendation = @sowable_crops.uniq
-    else
-      @hardiness_recommendation = @crops
+      ##
     end
-    ##
-
-    @tile = Tile.find(params[:tile_id]) if params[:tile_id]
-
   end
 
   def new

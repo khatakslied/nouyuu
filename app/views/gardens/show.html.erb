@@ -1,26 +1,30 @@
 <div class="container" data-controller="tile-container">
-  <div class="container-weather">
-    <% unless @weather_response['cod'] == '404' %>
-      <%= render "gardens/weather" %>
-    <% else %>
-      <%= render "gardens/default_weather" %>
-    <% end %>
-    <div class="card-weather">
-      <small id="unselected-tile" class="text-center">Select the tile</small>
-      <div class="d-flex justify-content-center">
+  <%# Info widget %>
+  <div class="container-info-widget">
+    <div class="card-widget">
+      <% unless @weather_response['cod'] == '404' %>
+        <%= render "gardens/weather" %>
+      <% else %>
+        <%= render "gardens/default_weather" %>
+      <% end %>
+    </div>
+    <div class="card-widget">
       <%# Tile/plot edit widget %>
-        <div id="selected-tile" data-tile-container-target="selected-plot"></div>
-      </div>
-      <div class="d-none form-container-gardens" data-tile-container-target="form">
-        <%= simple_form_for [@garden, @plot] do |f| %>
-          <%= f.input :crop, as: :select, collection: (@favorites + @hardiness_recommendation).sort { |a, b| a.name<=>b.name }, label: "Recommended" %>
-          <%= f.input :tiles, :as => :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
-          <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
-        <% end %>
+        <div class="form-container-gardens" data-tile-container-target="form">
+          <%= simple_form_for [@garden, @plot] do |f| %>
+            <%= f.input :crop, as: :select, collection: (@favorites + @hardiness_recommendation).sort { |a, b| a.name<=>b.name }, label: "Recommended" %>
+            <%= f.input :tiles, :input_html => { data: { "tile-container-target": "input" } } %>
+            <%# :as => :hidden %>
+            <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
+          <% end %>
+        <%# This will re-render on tile/plot selection %>
+        </div>
+      <div id="selected-tile" data-tile-container-target="selected-plot">
       </div>
     </div>
   </div>
-  <%# Simulated garden %>
+  <%# Garden display %>
+  <h3>Select a Tile</h3>
   <div class ="container-garden-perspective">
     <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
       <% @tiles.each do |tile| %>

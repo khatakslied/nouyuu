@@ -1,7 +1,7 @@
-<div class="card-plot">
+<div class="card-widget">
   <%= image_tag(tile.plot.crop.image_url) %>
   <p><%= tile.plot.crop.name %></p>
-  <p><%= pluralize(tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i, 'days') %> till harvest</p>
+  <p><%= pluralize(tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i, 'days') %> until harvest</p>
   <%= form_with(url: plot_path(tile.plot), method: 'PATCH') do |f| %>
     <%= f.hidden_field(:plot_id, value: tile.plot.id) %>
     <%= f.submit "Submit", class: 'd-none', data: { water_id: "water-#{tile.id}" } %>
