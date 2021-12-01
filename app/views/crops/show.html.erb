@@ -1,8 +1,30 @@
 <div class="card-crops-show-body">
-  <%# <%= link_to crops_url(anchor: @crop.name) do %>
-    <%= link_to "#{crops_path}##{@crop.name.gsub(" ", "_")}" do %>
+  <%= link_to "#{crops_path}##{@crop.name.gsub(" ", "_")}" do %>
       <div class="card-crops-show-return-link">
         <i class="far fa-arrow-alt-circle-left"></i>
+    </div>
+  <% end %>
+  <div class="card-crops-show">
+    <div class="favorite-star-show" data-controller="mark-favorite-crop">
+      <%= link_to toggle_favorite_crop_path(@crop), remote: true, method: "PATCH" do %>
+        <div class="<%= current_user.favorited?(@crop) ? "star marked" : "star" %>" data-action="click->mark-favorite-crop#mark">
+          <i class="fas fa-star"></i>
+        </div>
+      <% end %>
+    </div>
+    <h1><%= @crop.name %></h1>
+    <div class="card-crops-show-img">
+      <%= image_tag @crop.image_url %>
+    </div>
+    <div class="card-crops-show-plant-family">
+      <h5>Plant Family: </h5>
+      <p><em><%= @crop.plant_family %></em></p>
+    </div>
+    <div class="card-crops-show-white-container">
+      <h5>Needs</h5>
+      <div class="card-crops-show-bottom-details">
+        <p>Water:</p>
+        <p>Every <%= @crop.water_needs %> days</p>
       </div>
     <% end %>
     <div class="card-crops-show">
@@ -13,9 +35,14 @@
           </div>
         <% end %>
       </div>
-      <h1><%= @crop.name %></h1>
-      <div class="card-crops-show-img">
-        <%= image_tag @crop.image_url %>
+      <h5>Recommendations</h5>
+      <div class="card-crops-show-bottom-details">
+        <p>Sun Exposure:</p>
+        <% if @crop.sun_exposure == "Full Sun" %>
+          <p><i class="fas fa-sun"></i></p>
+        <% else %>
+          <p><i class="fas fa-cloud-sun"></i></p>
+        <% end %>
       </div>
       <div class="card-crops-show-plant-family">
         <h5>Plant Family: </h5>
@@ -52,5 +79,9 @@
         </div>
         <%#= this one should be another div with water use %>
       </div>
+    </div>
+    <div class="card-crops-show-description">
+      <h5>Description: </h5>
+      <p><%= @crop.description %></p>
     </div>
   </div>
