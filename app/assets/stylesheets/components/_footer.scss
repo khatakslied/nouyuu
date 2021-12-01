@@ -1,0 +1,35 @@
+.footer {
+  background: $weak-yolk;
+  height: 100px;
+  padding: 0px;
+  color: rgba(0,0,0,0.3);
+  margin-top: 16px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px;
+
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 18px 8px;
+}
+
+.footer-link {
+  border: 1px solid red;
+  width: 120px;
+  height: 60px;
+  border-radius: 45px;
+  padding: 12px;
+  font-size: 16px;
+  li {
+    font-size: 12px;
+    list-style-type: none;
+  }
+}
