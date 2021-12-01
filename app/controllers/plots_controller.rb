@@ -27,15 +27,21 @@ class PlotsController < ApplicationController
   end
 
   def update
-    @plot = Plot.find(params[:plot_id])
+    @plot = Plot.find(params[:id])
     authorize @plot
-    @plot.update(days_since_watering: @plot.crop.water_needs + 1)
+    @plot.update(days_since_watering: 0)
+  end
+
+  def destroy
+    @plot = Plot.find(params[:id])
+    authorize @plot
+    @plot.destroy
   end
 
   private
 
   def plot_params
-    params.require(:plot).permit(:garden_id, :crop_id, plot: [:name, :tiles, :crop])
+    params.require(:plot).permit(:garden_id, :crop_id, :days_since_watering, plot: [:name, :tiles, :crop])
   end
 
   def give_plot_id_to_tiles(tile_ids, plot)

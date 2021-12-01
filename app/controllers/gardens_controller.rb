@@ -11,7 +11,6 @@ class GardensController < ApplicationController
     if params[:tile_id]
       garden = Garden.find(params[:id])
       authorize garden
-
       @tile = garden.tiles.find(params[:tile_id])
     else
       @garden = Garden.find(params[:id])

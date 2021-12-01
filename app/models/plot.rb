@@ -1,5 +1,5 @@
 class Plot < ApplicationRecord
   belongs_to :garden
   belongs_to :crop
-  has_many :tiles
+  has_many :tiles, dependent: :nullify
 end
