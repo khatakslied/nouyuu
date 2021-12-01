@@ -52,13 +52,13 @@ color: $burgundy !important;
   display: flex;
   position: relative;
   justify-content: space-around;
-  height: 85vh;
+  height: 100%;
   background-color: $mint;
   border-radius: 16px;
   margin: 16px;
   h1 {
     text-align: center;
-    padding: 8px;
+    padding: 8px 24px;
     margin: 0px;
   }
   h5 {
@@ -70,6 +70,11 @@ color: $burgundy !important;
     text-align: justify;
     line-height: 1.4;
   }
+}
+
+.favorite-star-show {
+  position: absolute;
+  left: 295px;
 }
 
 .card-crops-show {
@@ -122,6 +127,7 @@ color: $burgundy !important;
   border-radius: 16px;
   background-color: $off-white;
   padding: 8px 0px;
+  margin-bottom: 16px;
   h5 {
     text-align: center;
   }

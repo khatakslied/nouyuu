@@ -24,7 +24,7 @@ export default function() {
         scene.add( gltf.scene );
         scene.add( directionalLight );
         camera = gltf.cameras[0];
-        scene.background = new THREE.set(0xffffff, 0);
+        // scene.background = new THREE.set(0xffffff, 0);
       });
 
       const animate = function () {

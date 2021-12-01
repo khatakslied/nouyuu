@@ -46,5 +46,9 @@ export default class extends Controller {
 
   water(event) {
     document.querySelector(`input[data-water-id=water-${event.currentTarget.dataset.waterId}]`).click()
+    const drops = document.querySelectorAll(`img[data-plot-need-water-id=drop-${event.currentTarget.dataset.waterId}]`)
+    drops.forEach(drop => {
+      drop.remove()
+    })
   }
 }

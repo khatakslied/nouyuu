@@ -1,12 +1,19 @@
 <div class="card-widget">
   <%= image_tag(tile.plot.crop.image_url) %>
   <p><%= tile.plot.crop.name %></p>
-  <p><%= pluralize(tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i, 'days') %> until harvest</p>
+  <% if (tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i) > 0 %>
+    <p><%= pluralize(tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i, 'days') %> till harvest</p>
+  <% else %>
+  <%# Harvest method %>
+    <p>HARVEST</p>
+  <% end %>
+    <small><%= tile.plot.created_at.strftime("Planted %b %d.") %></small>
+  <%# Water method %>
   <%= form_with(url: plot_path(tile.plot), method: 'PATCH') do |f| %>
     <%= f.hidden_field(:plot_id, value: tile.plot.id) %>
-    <%= f.submit "Submit", class: 'd-none', data: { water_id: "water-#{tile.id}" } %>
+    <%= f.submit "Submit", class: 'd-none', data: { water_id: "water-#{tile.plot.id}" } %>
   <% end %>
   <% if tile.plot.crop.water_needs >= tile.plot.days_since_watering %>
-    <%= image_tag "droplet.png", class: "droplet", data: { action: "click->tile-container#water", water_id: "#{tile.id}" } %>
+    <%= image_tag "droplet.png", class: "droplet", data: { action: "click->tile-container#water", water_id: "#{tile.plot.id}" } %>
   <% end %>
 </div>
