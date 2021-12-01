@@ -1,3 +1,23 @@
 .container-garden-perspective {
   perspective: 1000px;
 }
+
+.container-info-widget {
+  display: flex;
+  justify-content: space-between;
+  background-image: url(background-mint.png);
+  background-size: contain;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 2px 4px $light-gray;
+}
+
+.container-temp-info {
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin: 4px;
+  }
+  small {
+    margin: 8px;
+  }
+}

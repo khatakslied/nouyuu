@@ -1,4 +1,4 @@
-<div class="card-plot">
+<div class="card-widget">
   <%= image_tag(tile.plot.crop.image_url) %>
   <p><%= tile.plot.crop.name %></p>
   <% if (tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i) > 0 %>

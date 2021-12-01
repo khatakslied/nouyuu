@@ -6,18 +6,17 @@ export default class extends Controller {
   static targets = ["tile", "plot", "input", "form", "droplet"]
 
   connect() {
-
   }
 
-  changeClass(event) {
+  displaySelectedTile(event) {
     if (event.currentTarget.dataset.plotId) {
       this.selectPlot(event)
-      document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
       this.formTarget.classList.add('d-none')
+      document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
     } else {
       this.selectFree(event)
-      document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
       this.formTarget.classList.remove('d-none')
+      document.querySelector(`input[data-tile-id=tile-${event.currentTarget.id}]`).click()
     }
   }
 

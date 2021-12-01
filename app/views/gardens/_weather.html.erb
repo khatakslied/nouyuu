@@ -1,9 +1,7 @@
-<div class="card-weather">
-  <h3><%= @weather_response['name'] %></h3>
-  <%= image_tag("http://openweathermap.org/img/wn/#{@weather_response['weather'][0]['icon']}@2x.png") %>
-  <div class="container-temp-info">
-    <p>Low: <%= @weather_response['main']['temp_min'].round %>°C</p>
-    <small><%= @weather_response['weather'][0]['description'].capitalize %></small>
-    <p>High: <%= @weather_response['main']['temp_max'].round %>°C</p>
-  </div>
+<h3><%= @weather_response['name'] %></h3>
+<%= image_tag("http://openweathermap.org/img/wn/#{@weather_response['weather'][0]['icon']}@2x.png") %>
+<div class="container-temp-info">
+  <p>Low: <%= @weather_response['main']['temp_min'].round %>°C</p>
+  <small><%= @weather_response['weather'][0]['description'].capitalize %></small>
+  <p>High: <%= @weather_response['main']['temp_max'].round %>°C</p>
 </div>
