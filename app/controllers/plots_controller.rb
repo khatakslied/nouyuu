@@ -34,8 +34,10 @@ class PlotsController < ApplicationController
 
   def destroy
     @plot = Plot.find(params[:id])
+    @garden = @plot.garden
     authorize @plot
     @plot.destroy
+    redirect_to garden_path(@garden)
   end
 
   private
