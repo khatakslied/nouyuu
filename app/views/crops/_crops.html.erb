@@ -1,5 +1,5 @@
 <% @crops.each do |crop| %>
-  <div id="<%= crop.name.gsub(" ", "_") %>"" class="card-crop-index">
+  <div id="<%= crop.name.gsub(" ", "_") %>" class="card-crop-index">
     <%= link_to toggle_favorite_crop_path(crop), remote: true, method: "PATCH" do %>
       <div class="<%= current_user.favorited?(crop) ? "star marked" : "star" %>" data-action="click->mark-crops#mark">
         <i class="fas fa-star"></i>
