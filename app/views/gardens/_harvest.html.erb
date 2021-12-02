@@ -1,0 +1,18 @@
+<% days_left = plot.crop.min_days_to_harvest - (Date.today.to_date - plot.created_at.to_date).to_i %>
+<% if @perennials.include?(plot.crop.plant_family) %>
+  <% if days_left > 0 %>
+    <p><strong><%= pluralize(days_left, 'days') %></strong></p>
+  <% elsif (days_left < 0) && plot.crop.name = "Asparagus" && %w(03 04 05).include?(Time.now.strftime("%Y%m").last(2)) %>
+    <p><strong>In season</strong></p>
+  <% elsif (days_left < 0) && %w(05 06 07).include?(Time.now.strftime("%Y%m").last(2)) %>
+    <p><strong>In season</strong></p>
+  <% else %>
+    <p><strong>Out of season</strong></p>
+  <% end %>
+<% else %>
+  <% if days_left > 0 %>
+    <p><strong><%= pluralize(days_left, 'days') %></p>
+    <% else %>
+      <%= image_tag 'sickle.png', id: "sickle" %>
+    <% end %>
+  <% end %>

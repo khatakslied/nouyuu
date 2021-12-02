@@ -1,6 +1,3 @@
-<div class="card-nouyuu">
-  <%= link_to "Start a New Garden", new_garden_path, class: "btn-gardens" %>
-</div>
 <% @gardens.each do |garden| %>
   <%= link_to garden_path(garden) do %>
     <div class="card-gardens-index">
@@ -15,20 +12,27 @@
         <div class="text-center">
           <h3>Currently Growing:</h3>
         </div>
-        <div class="d-flex justify-content-around">
-          <small><i class="fas fa-tint"> - water your plants</i></small>
-          <small><i class="far fa-hand-rock"></i> - harvest now</i></small>
-      </div>
-      <% garden.plots.each do |plot| %>
-        <div class="card-garden-todo">
-          <%= image_tag plot.crop.image_url %>
-          <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
-          <% if ((Time.now.to_date - plot.days_since_watering.to_date).to_i >= plot.crop.water_needs) %>
-            <i class="fas fa-tint"></i>
-          <% end %>
+        <div class="card-garden-todo-legend">
+          <i class="fas fa-tint"> - water today</i>
+          <small><%= image_tag 'sickle.png', id: "sickle" %>- untill harvest</small>
         </div>
-      <% end %>
+        <% garden.plots.each do |plot| %>
+          <% if ((Time.now.to_date - plot.days_since_watering.to_date).to_i >= plot.crop.water_needs) %>
+            <div class="card-garden-todo-need-water">
+              <i class="fas fa-tint"></i>
+              <%= image_tag plot.crop.image_url %>
+              <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
+              <%= render 'harvest', plot: plot %>
+            </div>
+          <% else %>
+            <div class="card-garden-todo">
+              <%= image_tag plot.crop.image_url %>
+              <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
+              <%= render 'harvest', plot: plot %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 <% end %>

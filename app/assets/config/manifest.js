@@ -61,3 +61,4 @@
 //= link watermelon.png
 //= link winter.png
 //= link wintersquash.png
+//= link sickle.png
