@@ -1,7 +1,12 @@
 <div class="footer">
   <div class="footer-links">
-    <div><%= link_to "My Gardens", gardens_path, class: 'btn btn-primary footer-link' %></div>
-    <div><%= link_to "Crop Lists", crops_path, class: 'btn btn-primary footer-link' %></div>
-    <div class="btn btn-primary footer-link"><li><%= "Plant Favorites: (#{@favorite_crops})" %></li></div>
-  </div>
+    <div class="crop-container-img">
+      <%= image_tag 'gardensindex', class: 'footer-img' %>
+      <div><%= link_to "Gardens", gardens_path, class: 'btn btn-primary footer-link' %></div>
+    </div>
+    <div class="crop-container-img">
+      <%= image_tag 'cropsindex', class: 'footer-img' %>
+      <%= link_to "Crops", crops_path, class: 'btn btn-primary footer-link' %>
+    </div>
+   </div>
 </div>
