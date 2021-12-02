@@ -1,28 +1,30 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ['button']
-  static values = { number: Number }
+  static targets = ["button"]
+  static values = { num: Number }
 
   connect() {
-    this.numberValueChanged()
+    this.numValue = this.buttonTarget.innerHTML
+    this.numValueChanged()
   }
 
   mark(event) {
     if (event.currentTarget.classList.contains('marked')) {
-      this.numberValue--
+      this.numValue--
     } else {
-      this.numberValue++
+      this.numValue++
     }
     event.currentTarget.classList.toggle('marked')
   }
 
-  numberValueChanged() {
-    this.buttonTarget.innerHTML = `Plant Favorites: (${this.numberValue})`
-    if (this.numberValue === 0) {
+  numValueChanged() {
+    if (this.numValue === 0) {
       this.buttonTarget.classList.add('d-none')
     } else {
+      console.log(this.numValue)
       this.buttonTarget.classList.remove('d-none')
+      this.buttonTarget.innerHTML = this.numValue
     }
   }
 }

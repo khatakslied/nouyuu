@@ -1,10 +1,7 @@
-<div class="container">
-  <div data-controller="mark-crops" data-mark-crops-number-value=<%= @favorite_crops %>>
-    <%= link_to new_garden_path, data: { mark_crops_target: "button" }, class: "btn btn-primary w-100 btn-sticky-top" do %>
-      <%= "Plant Favorites: (#{@favorite_crops})" %>
-    <% end %>
+<div data-controller="mark-crops">
+  <div class="container">
     <%= render 'search_bar_crops', crops: @crops %>
     <%= render 'crops', crops: @crops %>
   </div>
+  <%= render 'shared/footer', favorite: current_user.favorites_by_type('Crop').count %>
 </div>
-<%= render 'shared/footer' %>
