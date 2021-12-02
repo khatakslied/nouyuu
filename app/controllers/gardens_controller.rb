@@ -4,6 +4,7 @@ require 'net/http'
 class GardensController < ApplicationController
   def index
     @gardens = policy_scope(Garden).order(created_at: :desc)
+    @perennials = ["Ericaceae", "Passifloraceae", "Lamiaceae", "Asparagaceae", "Rosaceae", "Grossulariaceae"]
   end
 
   def show
