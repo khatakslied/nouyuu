@@ -36,4 +36,6 @@
     </div>
   <% end %>
 <% end %>
-<%= render 'shared/footer', favorite: current_user.favorites_by_type('Crop').count %>
+<div data-controller="mark-crops">
+  <%= render 'shared/footer', favorite: current_user.favorites_by_type('Crop').count %>
+</div>
