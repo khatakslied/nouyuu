@@ -271,30 +271,32 @@ color: #ff6600 !important;
 }
 
 // For todo list
-
+// background-color:  #b2c4ffd1;
 .card-garden-todo-need-water {
-  display: flex;
-  justify-content: space-between;
+   display: flex;
+  // justify-content: space-between;
   border-radius: 8px;
   background-color:  #b2c4ffd1;
-  margin: 8px;
+  margin: 10px 12px;
   opacity: 0.9;
-
+  width: 305px;
+  justify-content: space-between;
   h3 {
     font-size: 1.4rem;
   }
 
   img {
+    margin: 16px;
     width: 30px;
     object-fit: contain;
   }
 
   p {
-    display: inline-block;
-    margin: 4px 8px;
-    text-align: right;
+    // display: inline-block;
+    margin: 16px 8px;
+    // text-align: right;
+    font-weight: bolder;
   }
-
   .fas {
     color: $off-white;
     font-size: 16px;
