@@ -14,6 +14,7 @@ class CropsController < ApplicationController
   def show
     @crop = Crop.find(params[:id])
     authorize @crop
+    @favorite_crops = current_user.favorites_by_type('Crop').count
   end
 
   def toggle_favorite
