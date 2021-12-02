@@ -52,6 +52,17 @@
   position: relative;
 }
 
+.favorite-counter {
+  position: absolute;
+  text-align: center;
+  background-color: #ff6600;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+}
+
 .footer-img {
   width: 50px;
   position: absolute;
