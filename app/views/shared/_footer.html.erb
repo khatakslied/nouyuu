@@ -1,0 +1,16 @@
+<div class="footer">
+  <div class="footer-links">
+    <%= link_to gardens_path do %>
+      <div class="crop-container-img">
+        <%= image_tag 'gardensindex', class: 'footer-img' %>
+        <div class="btn btn-primary footer-link"><p class="footer-gardens-word">Gardens</p></div>
+      </div>
+    <% end %>
+    <%= link_to crops_path do %>
+      <div class="crop-container-img">
+        <%= image_tag 'cropsindex', class: 'footer-img' %>
+        <div class="btn btn-primary footer-link"><p class="footer-crops-word">Crops</p></div>
+      </div>
+    <% end %>
+   </div>
+</div>
