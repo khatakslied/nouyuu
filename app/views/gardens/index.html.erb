@@ -32,4 +32,4 @@
   </div>
 <% end %>
 <% end %>
-<%= render 'shared/footer' %>
+<%= render 'shared/footer', favorite: current_user.favorites_by_type('Crop').count %>

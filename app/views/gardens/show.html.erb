@@ -10,13 +10,13 @@
     </div>
     <div class="card-widget">
       <%# Tile/plot edit widget %>
-        <div class="form-container-gardens" data-tile-container-target="form">
-          <%= simple_form_for [@garden, @plot] do |f| %>
-            <%= f.input :crop, as: :select, collection: (@favorites + @hardiness_recommendation).sort { |a, b| a.name<=>b.name }, label: "Recommended" %>
-            <%= f.input :tiles, as: :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
-            <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
-          <% end %>
-        </div>
+      <div class="form-container-gardens" data-tile-container-target="form">
+        <%= simple_form_for [@garden, @plot] do |f| %>
+          <%= f.input :crop, as: :select, collection: (@favorites + @hardiness_recommendation).sort { |a, b| a.name<=>b.name }, label: "Recommended" %>
+          <%= f.input :tiles, as: :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
+          <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
+        <% end %>
+      </div>
       <div id="selected-tile" data-tile-container-target="selected-plot">
       </div>
     </div>
@@ -31,4 +31,4 @@
     </div>
   </div>
 </div>
-<%= render 'shared/footer' %>
+<%= render 'shared/footer', favorite: @favorites %>

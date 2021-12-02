@@ -14,7 +14,7 @@
         <div class="btn btn-primary footer-link">
           <p class="footer-crops-word">Crops</p>
         </div>
-        <div class="favorite-counter"><%=  %></div>
+        <div class="favorite-counter" data-mark-crops-target="button" data-mark-crops-num-value=<%= favorite %>><%= favorite if favorite > 0 %></div>
       </div>
     <% end %>
   </div>
