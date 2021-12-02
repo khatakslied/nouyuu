@@ -64,5 +64,4 @@
 //= link sickle.png
 //= link cropsindex.png
 //= link gardensindex.png
-//= link cover.png
 
