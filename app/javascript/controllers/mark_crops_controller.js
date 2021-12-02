@@ -6,7 +6,6 @@ export default class extends Controller {
 
   connect() {
     this.numValue = this.buttonTarget.innerHTML
-    console.log(this.buttonTarget.innerHTML)
     this.numValueChanged()
   }
 
