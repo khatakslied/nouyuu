@@ -27,19 +27,31 @@
   }
 }
 
+.recommended {
+  background-color: $laurel;
+}
+
 .star {
 position: absolute;
+display: flex;
 z-index: 2;
 top: 8px;
 left: 8px;
 color: $off-white;
- i {
-   font-size: 24px;
+i {
+  font-size: 24px;
  }
+p {
+  color: $moss;
+  background-color: $weak-yolk;
+  padding: 4px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
 }
 
 .marked {
-color: $burgundy !important;
+color: #ff6600 !important;
 }
 
 .card-crop-index-text {
@@ -66,7 +78,7 @@ color: $burgundy !important;
     margin: 0px;
   }
   p {
-    margin-bottom: 8px;
+    margin: 8px 0;
     font-size: 14px;
     text-align: justify;
     line-height: 1.4;

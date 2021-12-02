@@ -62,3 +62,6 @@
 //= link winter.png
 //= link wintersquash.png
 //= link sickle.png
+//= link cropsindex.png
+//= link gardensindex.png
+

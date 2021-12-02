@@ -1,18 +1,38 @@
 <% @crops.each do |crop| %>
-  <div id="<%= crop.name.gsub(" ", "_") %>" class="card-crop-index">
-    <%= link_to toggle_favorite_crop_path(crop), remote: true, method: "PATCH" do %>
-      <div class="<%= current_user.favorited?(crop) ? "star marked" : "star" %>" data-action="click->mark-crops#mark">
-        <i class="fas fa-star"></i>
+  <% if crop.sowing_months.include?(@current_month) %>
+    <div id="<%= crop.name.gsub(" ", "_") %>" class="card-crop-index recommended">
+        <%= link_to toggle_favorite_crop_path(crop), remote: true, method: "PATCH" do %>
+          <div class="<%= current_user.favorited?(crop) ? "star marked" : "star" %>" data-action="click->mark-crops#mark">
+            <i class="fas fa-star"></i>
+            <p>Recommended</p>
+          </div>
+        <% end %>
+        <div class="card-crop-index-body">
+          <div class="card-crop-index-text">
+            <h2><%= link_to crop.name, crop_path(crop) %></h2>
+            <p><%= crop.plant_family %></p>
+            <%= link_to crop_path(crop) do %>
+            </div>
+            <%= image_tag crop.image_url %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    <div class="card-crop-index-body">
-      <div class="card-crop-index-text">
-        <h2><%= link_to crop.name, crop_path(crop) %></h2>
-        <p><%= crop.plant_family %></p>
-        <%= link_to crop_path(crop) do %>
+  <% else %>
+    <div id="<%= crop.name.gsub(" ", "_") %>" class="card-crop-index">
+      <%= link_to toggle_favorite_crop_path(crop), remote: true, method: "PATCH" do %>
+        <div class="<%= current_user.favorited?(crop) ? "star marked" : "star" %>" data-action="click->mark-crops#mark">
+          <i class="fas fa-star"></i>
         </div>
-        <%= image_tag crop.image_url %>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+      <div class="card-crop-index-body">
+        <div class="card-crop-index-text">
+          <h2><%= link_to crop.name, crop_path(crop) %></h2>
+          <p><%= crop.plant_family %></p>
+          <%= link_to crop_path(crop) do %>
+          </div>
+          <%= image_tag crop.image_url %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
