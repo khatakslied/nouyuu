@@ -2,6 +2,6 @@
   <div class="banner-content text-center">
     <h1>Grow fresh vegetables now!</h1>
     <p>Check the vegetables recommended to grow in your area</p>
-    <%= link_to "Start Growing", crops_path, class: "btn btn-info"%>
+    <%= link_to "Start Growing", (current_user == nil || current_user.gardens.present? == false ? crops_path : gardens_path), class: "btn btn-info"%>
   </div>
 </div>
