@@ -31,6 +31,25 @@
     </div>
   </div>
 </div>
-<div data-controller="mark-crops">
-  <%= render 'shared/footer', favorite: @favorites.count %>
+<%# Please Don't move this footer in the partial or it breaks stimulus controller %>
+<div class="footer">
+  <div class="footer-links">
+    <%= link_to (current_user.gardens.present? == true ? gardens_path : new_garden_path) do %>
+      <div class="crop-container-img">
+        <%= image_tag 'gardensindex', class: 'footer-img' %>
+        <div class="btn btn-primary footer-link">
+          <p class="footer-gardens-word">Gardens</p>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to crops_path do %>
+      <div class="crop-container-img">
+        <%= image_tag 'cropsindex', class: 'footer-img' %>
+        <div class="btn btn-primary footer-link">
+          <p class="footer-crops-word">Crops</p>
+        </div>
+        <div class="favorite-counter" data-controller="mark-crops" data-mark-crops-target="button" data-mark-crops-num-value=<%= @favorites.count %>><%= @favorites.count if @favorites.count > 0 %></div>
+      </div>
+    <% end %>
+  </div>
 </div>
