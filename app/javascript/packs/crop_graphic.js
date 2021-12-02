@@ -18,7 +18,7 @@ export default function() {
       // camera.position.set(0, 0, 50);
       const loader = new GLTFLoader();
 
-      loader.load('/testcrop2.gltf',
+      loader.load('/solanaceae.glb',
         ( gltf ) => {
         console.log(gltf)
         scene.add( gltf.scene );
@@ -27,15 +27,16 @@ export default function() {
         // scene.background = new THREE.set(0xffffff, 0);
       });
 
+
+      ////////// END
+      tile.appendChild( renderer.domElement )
       const animate = function () {
         requestAnimationFrame( animate );
         renderer.render( scene, camera );
       };
       animate();
 
-    ////////// END
-    tile.appendChild( renderer.domElement )
-  });
+    });
 
   // loader.load('/testcrop1.gltf',
 	// // called when the resource is loaded
