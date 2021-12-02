@@ -1,6 +1,6 @@
 <div class="footer">
   <div class="footer-links">
-    <%= link_to gardens_path do %>
+    <%= link_to (current_user.gardens.present? == true ? gardens_path : new_garden_path) do %>
       <div class="crop-container-img">
         <%= image_tag 'gardensindex', class: 'footer-img' %>
         <div class="btn btn-primary footer-link"><p class="footer-gardens-word">Gardens</p></div>

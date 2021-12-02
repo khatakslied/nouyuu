@@ -3,15 +3,15 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 export default function() {
 
-  const tiles = document.querySelectorAll(`div[data-crop-name='VEG']`);
+  const tiles = document.querySelectorAll(`div[data-crop-name='Tomato']`);
   tiles.forEach(tile => {
 
 
     ////////////START
       const scene = new THREE.Scene();
       let camera = new THREE.PerspectiveCamera( 1, window.innerWidth / window.innerHeight, 0.1, 1000 );
-      let hemiLight = new THREE.HemisphereLight( 0x0000ff, 0x00ff00, 2 );
-      let directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
+      let directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+      const light = new THREE.AmbientLight( 0x404040, 5 );
       const renderer = new THREE.WebGLRenderer( { alpha: true } );
       renderer.setSize( window.innerWidth, window.innerHeight );
 
@@ -22,7 +22,7 @@ export default function() {
         ( gltf ) => {
         console.log(gltf)
         scene.add( gltf.scene );
-        scene.add( directionalLight );
+        scene.add( light );
         camera = gltf.cameras[0];
         // scene.background = new THREE.set(0xffffff, 0);
       });

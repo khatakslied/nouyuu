@@ -269,8 +269,9 @@ color: #ff6600 !important;
 
 // For todo list
 
-.card-garden-todo {
-  position: relative;
+.card-garden-todo-need-water {
+  display: flex;
+  justify-content: space-between;
   border-radius: 8px;
   background-color:  #b2c4ffd1;
   margin: 8px;
@@ -281,8 +282,6 @@ color: #ff6600 !important;
   }
 
   img {
-    margin: 16px;
-    margin-right: 64px;
     width: 30px;
     object-fit: contain;
   }
@@ -294,11 +293,53 @@ color: #ff6600 !important;
   }
 
   .fas {
-    position: absolute;
     color: $off-white;
-    right: 16px;
-    top: 16px;
     font-size: 16px;
     opacity: 0.9;
+    padding: 8px;
   }
+}
+
+.card-garden-todo {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  margin: 8px;
+  opacity: 0.9;
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  img {
+    margin: 16px;
+    width: 30px;
+    object-fit: contain;
+  }
+
+  p {
+    display: inline-block;
+    margin: 4px 8px;
+    text-align: right;
+  }
+}
+
+.card-garden-todo-legend {
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  i {
+    color: #b2c4ffd1;
+  }
+
+}
+
+#sickle {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #db8833;
+  margin: 8px;
 }
