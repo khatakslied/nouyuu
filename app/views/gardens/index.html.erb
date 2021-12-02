@@ -14,8 +14,10 @@
             <h3>Currently Growing:</h3>
           </div>
           <div class="card-garden-todo-legend">
-            <i class="fas fa-tint"> - water today</i>
-            <small><%= image_tag 'sickle.png', id: "sickle" %>- untill harvest</small>
+            <i class="fas fa-tint #water-drop"></i>
+            <p class="water-needed">Watering Needed</p>
+            <%= image_tag 'sickle.png', id: "sickle" %>
+            <p class="harvest-needed">Harvestable</p>
           </div>
           <% garden.plots.each do |plot| %>
             <% if ((Time.now.to_date - plot.days_since_watering.to_date).to_i >= plot.crop.water_needs) %>
