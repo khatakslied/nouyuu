@@ -1,24 +1,34 @@
 <div class="card-widget">
   <%= image_tag(tile.plot.crop.image_url) %>
   <p><%= tile.plot.crop.name %></p>
-  <% if tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i > 0 %>
-    <p><%= pluralize(tile.plot.crop.min_days_to_harvest - (Date.today.to_date - tile.plot.created_at.to_date).to_i, 'days') %> till harvest</p>
-  <% elsif tile.plot.crop.crop_type == "Fruit" %>
-    <p>HARVESTABLE</p>
-  <% else %>
   <%# Harvest method %>
-    <%= form_with(url: plot_path(tile.plot), method: 'DELETE') do |f| %>
-      <%= f.hidden_field(:plot_id, value: tile.plot.id) %>
-      <%= f.submit "Harvest", class: 'btn btn-success btn-gardens', data: { harvest_id: "harvest-#{tile.plot.id}" } %>
+  <% if perennials.include?(tile.plot.crop.plant_family) %>
+    <% if days_left > 0 %>
+      <p><strong><%= pluralize(days_left, 'days') %></strong> until <strong>first harvest</strong></p>
+    <% elsif (days_left < 0) && tile.plot.crop.name = "Asparagus" && %w(03 04 05).include?(Time.now.strftime("%Y%m").last(2)) %>
+      <p><strong>In season</strong></p>
+    <% elsif (days_left < 0) && %w(05 06 07).include?(Time.now.strftime("%Y%m").last(2)) %>
+      <p><strong>In season</strong></p>
+    <% else %>
+      <p><strong>Out of season</strong></p>
+    <% end %>
+  <% else %>
+    <% if days_left > 0 %>
+      <p><strong><%= pluralize(days_left, 'days') %></strong> until <strong>harvest</strong></p>
+    <% else %>
+    <%= form_with(url: plot_path(tile.plot), local: true, method: :delete) do |f| %>
+        <%= f.hidden_field(:plot_id, value: tile.plot.id) %>
+        <%= f.submit "Harvest", class: 'btn btn-success btn-gardens', data: { harvest_id: "harvest-#{tile.plot.id}" } %>
+      <% end %>
     <% end %>
   <% end %>
-    <small><%= tile.plot.created_at.strftime("Planted %b %d.") %></small>
+  <small><%= tile.plot.created_at.strftime("Planted %b %d.") %></small>
   <%# Water method %>
   <%= form_with(url: plot_path(tile.plot), local: true, method: 'PATCH') do |f| %>
-    <%= f.hidden_field(:days_since_watering, value: 0) %>
+    <%= f.hidden_field(:days_since_watering, value: Time.now) %>
     <%= f.submit "Submit", class: 'd-none', data: { water_id: "water-#{tile.plot.id}" } %>
   <% end %>
-  <% if tile.plot.days_since_watering >= tile.plot.crop.water_needs %>
+  <% if ((Time.now.to_date - tile.plot.days_since_watering.to_date).to_i >= tile.plot.crop.water_needs) %>
     <%= image_tag "droplet.png", class: "droplet", data: { action: "click->tile-container#water", water_id: "#{tile.plot.id}" } %>
   <% end %>
 </div>

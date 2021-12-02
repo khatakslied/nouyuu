@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_102718) do
+ActiveRecord::Schema.define(version: 2021_12_01_085359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,11 +87,11 @@ ActiveRecord::Schema.define(version: 2021_11_23_102718) do
 
   create_table "plots", force: :cascade do |t|
     t.string "name"
-    t.integer "days_since_watering"
     t.bigint "garden_id", null: false
     t.bigint "crop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "days_since_watering"
     t.index ["crop_id"], name: "index_plots_on_crop_id"
     t.index ["garden_id"], name: "index_plots_on_garden_id"
   end

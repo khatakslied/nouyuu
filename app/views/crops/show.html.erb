@@ -17,8 +17,14 @@
       <%= image_tag @crop.image_url %>
     </div>
     <div class="card-crops-show-plant-family">
-      <h5>Plant Family: </h5>
-      <p><em><%= @crop.plant_family %></em></p>
+      <div class="card-crops-show-plant-perennial">
+        <% if ["Ericaceae", "Passifloraceae", "Lamiaceae", "Asparagaceae", "Rosaceae", "Grossulariaceae"].include?(@crop.plant_family) %>
+          <p>Grows Every Year</p>
+        <% else %>
+          <p>Grows Once</p>
+        <% end %>
+      </div>
+      <p class="crop-plant-family"><em><%= @crop.plant_family %></em></p>
     </div>
     <div class="card-crops-show-white-container">
       <h5>Needs</h5>

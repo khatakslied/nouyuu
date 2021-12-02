@@ -11,7 +11,7 @@ class PlotsController < ApplicationController
     @plot = Plot.new(plot_params)
     @plot.garden_id = params[:garden_id]
     @plot.crop_id = params[:plot][:crop]
-    @plot.days_since_watering = 0
+    @plot.days_since_watering = Time.now
     @garden = Garden.find(params[:garden_id])
     @plot.name = params[:plot][:name]
     @tiles = params[:plot][:tiles]
@@ -29,13 +29,15 @@ class PlotsController < ApplicationController
   def update
     @plot = Plot.find(params[:id])
     authorize @plot
-    @plot.update(days_since_watering: 0)
+    @plot.update(days_since_watering: Time.now)
   end
 
   def destroy
     @plot = Plot.find(params[:id])
+    @garden = @plot.garden
     authorize @plot
     @plot.destroy
+    redirect_to garden_path(@garden)
   end
 
   private
