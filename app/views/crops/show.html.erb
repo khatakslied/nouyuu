@@ -36,7 +36,6 @@
         <p>Nitrogen:</p>
         <p><%= @crop.nitrogen_needs %></p>
       </div>
-      <h5>Recommendations</h5>
       <div class="card-crops-show-bottom-details">
         <p>Sun Exposure:</p>
         <% if @crop.sun_exposure == "Full Sun" %>
@@ -56,7 +55,6 @@
       <%#= this one should be another div with water use %>
     </div>
     <div class="card-crops-show-description">
-      <h5>Description: </h5>
       <p><%= @crop.description %></p>
     </div>
     <%#= put recommended stuff together in another color %>

@@ -1,10 +1,12 @@
 class CropsController < ApplicationController
   def index
+    @date = Date.today
+    @current_month = @date.strftime("%B")
     @crops =
       if params[:query].present?
         policy_scope(Crop.search_by_name_and_sowing_months(params[:query]))
       else
-        policy_scope(Crop).all
+        policy_scope(Crop).all.order(name: :ASC)
       end
     @favorite_crops = current_user.favorites_by_type('Crop').count
   end
