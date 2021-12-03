@@ -8,6 +8,7 @@
 
 .container-info-widget {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   background-image: url(background-mint.png);
   background-size: contain;
@@ -16,12 +17,10 @@
 
 .container-temp-info {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   p {
     margin: 4px;
-  }
-  small {
-    margin: 8px;
   }
 }
 

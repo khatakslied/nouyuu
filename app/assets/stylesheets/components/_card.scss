@@ -340,30 +340,29 @@ color: #ff6600 !important;
 
 .card-widget {
   text-align: center;
-  width: 100%;
-  padding: 8px;
+  padding: 0 16px 8px 16px;
+}
+
+.card-widget-weather {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px;
   h3 {
     font-size: 1.2rem;
   }
   img {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     object-fit: contain;
     background-color: $mint;
     border-radius: 16px;
   }
+  small {
+    margin: 0;
+  }
 }
-
-// .card-widget-plot {
-//   text-align: center;
-//   width: 100%;
-//   padding: 8px;
-//   img {
-//     width: 50px;
-//     background-color: $mint;
-//     border-radius: 16px;
-//   }
-// }
 
 .card-other-note {
   margin-top: 16px;
