@@ -1,10 +1,10 @@
+<%= link_to new_garden_path do %>
+  <p class="btn btn-primary w-100 gardens-index-start-button">Start A New Garden</p>
+<% end %>
 <div data-controller="mark-crops">
   <% @gardens.each do |garden| %>
     <%= link_to garden_path(garden) do %>
       <div class="card-gardens-index">
-        <%= link_to new_garden_path do %>
-          <p>Start A New Garden</p>
-        <% end %>
         <div class="card-gardens-index-header">
           <div class="text-center">
             <h2><%= garden.location.split(',')[0].capitalize  %> Garden</h2>
