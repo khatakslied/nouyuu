@@ -28,13 +28,13 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initAutocomplete } from './init_autocomplete';
-import showCrops from './crop_graphic';
+// import showCrops from './crop_graphic';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initAutocomplete();
-  showCrops();
+  // showCrops();
 });
 
 import "controllers"
