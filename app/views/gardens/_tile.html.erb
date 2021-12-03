@@ -2,7 +2,7 @@
   <%= f.hidden_field(:tile_id, value: tile.id) %>
   <%= f.submit "Submit", class: 'd-none', data: { tile_id: "tile-#{tile.id}" } %>
   <div class="tile" id="<%= tile.id %>" data-plot-id="<%= tile.plot_id %>" data-crop-name="<%= tile.plot.crop.name if tile.plot_id.present? %>" data-crop-family="<%= tile.plot.crop.plant_family if tile.plot_id.present? %>" data-tile-container-target="tile" data-action='click->tile-container#displaySelectedTile'>
-    <% if tile.plot_id.present? %>
+    <% if tile.plot_id && tile.plot.days_since_watering %>
       <%= image_tag tile.plot.crop.image_url %>
       <% if ((Time.now.to_date - tile.plot.days_since_watering.to_date).to_i >= tile.plot.crop.water_needs) %>
         <%= image_tag "droplet.png", class: "droplet", data: { plot_need_water_id: "drop-#{tile.plot.id}"} %>
