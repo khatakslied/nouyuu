@@ -19,7 +19,7 @@
   <div class="footer-links">
     <%= link_to (current_user.gardens.present? == true ? gardens_path : new_garden_path) do %>
       <div class="crop-container-img">
-        <%= image_tag 'gardensindex', class: 'footer-img' %>
+        <%= image_tag 'gardensindex.png', class: 'footer-img' %>
         <div class="btn btn-primary btn-shadow footer-link">
           <p class="footer-gardens-word">Gardens</p>
         </div>
@@ -27,7 +27,7 @@
     <% end %>
     <%= link_to crops_path do %>
       <div class="crop-container-img">
-        <%= image_tag 'cropsindex', class: 'footer-img' %>
+        <%= image_tag 'cropsindex.png', class: 'footer-img' %>
         <div class="btn btn-primary btn-shadow footer-link">
           <p class="footer-crops-word">Crops</p>
         </div>
