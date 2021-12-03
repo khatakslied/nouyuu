@@ -274,12 +274,12 @@ color: #ff6600 !important;
 
 .card-garden-todo {
   display: flex;
+  position: relative;
   // justify-content: space-between;
   border-radius: 8px;
-  margin: 10px 20px;
+  // margin: 10px 20px;
   opacity: 0.9;
   width: 280px;
-  justify-content: space-between;
   h3 {
     font-size: 1.4rem;
   }
