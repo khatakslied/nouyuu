@@ -14,7 +14,7 @@
         <%= simple_form_for [@garden, @plot] do |f| %>
           <%= f.input :crop, as: :select, collection: (@favorites + @hardiness_recommendation).sort { |a, b| a.name<=>b.name }, label: "Recommended", required: false %>
           <%= f.input :tiles, as: :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
-          <%= f.submit "Create plot", class: 'btn btn-primary btn-gardens' %>
+          <%= f.submit "Plant Crops", class: 'btn btn-primary btn-gardens' %>
         <% end %>
       </div>
       <div id="selected-tile" data-tile-container-target="selected-plot">
