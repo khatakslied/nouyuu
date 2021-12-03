@@ -2,7 +2,6 @@
   <%= link_to new_garden_path do %>
     <p class="btn btn-primary btn-shadow w-100 gardens-index-start-button">Start A New Garden</p>
   <% end %>
-  <%# <div data-controller="mark-crops"> %>
     <% @gardens.each do |garden| %>
       <%= link_to garden_path(garden) do %>
         <div class="card-gardens-index">
@@ -43,7 +42,6 @@
         </div>
       <% end %>
     <% end %>
-  <%# </div> %>
 </div>
 <div class="footer">
   <div class="footer-links">
