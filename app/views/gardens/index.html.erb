@@ -1,46 +1,67 @@
-<%= link_to new_garden_path do %>
-  <p class="btn btn-primary w-100 gardens-index-start-button">Start A New Garden</p>
-<% end %>
-<div data-controller="mark-crops">
-  <% @gardens.each do |garden| %>
-    <%= link_to garden_path(garden) do %>
-      <div class="card-gardens-index">
-        <div class="card-gardens-index-header">
-          <div class="text-center">
-            <h2><%= garden.location.split(',')[0].capitalize  %> Garden</h2>
+<div class="container">
+  <%= link_to new_garden_path do %>
+    <p class="btn btn-primary w-100 gardens-index-start-button">Start A New Garden</p>
+  <% end %>
+  <%# <div data-controller="mark-crops"> %>
+    <% @gardens.each do |garden| %>
+      <%= link_to garden_path(garden) do %>
+        <div class="card-gardens-index">
+          <div class="card-gardens-index-header">
+            <div class="text-center">
+              <h2><%= garden.location.split(',')[0].capitalize  %> Garden</h2>
+            </div>
+            <p><%= number_with_precision(garden.height, strip_insignificant_zeros: true) %>  x <%= number_with_precision(garden.width, strip_insignificant_zeros: true) %> meters</p>
+            <p><%= 100 - (((garden.tiles.where.not(plot_id: nil).count) * 100) / garden.tiles.count) %>% of unplanted space</p>
           </div>
-          <p><%= number_with_precision(garden.height, strip_insignificant_zeros: true) %>  x <%= number_with_precision(garden.width, strip_insignificant_zeros: true) %> meters</p>
-          <p><%= 100 - (((garden.tiles.where.not(plot_id: nil).count) * 100) / garden.tiles.count) %>% of unplanted space</p>
-        </div>
-        <div class="garden-todo-container">
-          <div class="text-center">
-            <h3>Currently Growing:</h3>
-          </div>
-          <div class="card-garden-todo-legend">
-            <i class="fas fa-tint #water-drop"></i>
-            <p class="water-needed">Watering Needed</p>
-            <%= image_tag 'sickle.png', id: "sickle" %>
-            <p class="harvest-needed">Harvestable</p>
-          </div>
-          <% garden.plots.each do |plot| %>
-            <% if ((Time.now.to_date - plot.days_since_watering.to_date).to_i >= plot.crop.water_needs) %>
-              <div class="card-garden-todo-need-water">
-                <i class="fas fa-tint"></i>
-                <%= image_tag plot.crop.image_url %>
-                <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
-                <%= render 'harvest', plot: plot %>
-              </div>
-            <% else %>
-              <div class="card-garden-todo">
-                <%= image_tag plot.crop.image_url %>
-                <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
-                <%= render 'harvest', plot: plot %>
-              </div>
+          <div class="garden-todo-container">
+            <div class="text-center">
+              <h3>Currently Growing:</h3>
+            </div>
+            <div class="card-garden-todo-legend">
+              <i class="fas fa-tint #water-drop"></i>
+              <p class="water-needed">Watering Needed</p>
+              <%= image_tag 'sickle.png', id: "sickle" %>
+              <p class="harvest-needed">Harvestable</p>
+            </div>
+            <% garden.plots.each do |plot| %>
+              <% if ((Time.now.to_date - plot.days_since_watering.to_date).to_i >= plot.crop.water_needs) %>
+                <div class="card-garden-todo-need-water">
+                  <i class="fas fa-tint"></i>
+                  <%= image_tag plot.crop.image_url %>
+                  <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
+                  <%= render 'harvest', plot: plot %>
+                </div>
+              <% else %>
+                <div class="card-garden-todo">
+                  <%= image_tag plot.crop.image_url %>
+                  <p><%= plot.crop.name %> x <%= (50/plot.crop.spacing_in_cm) * (plot.tiles.count) %></p>
+                  <%= render 'harvest', plot: plot %>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <%# </div> %>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <%= link_to (current_user.gardens.present? == true ? gardens_path : new_garden_path) do %>
+      <div class="crop-container-img">
+        <%= image_tag 'gardensindex', class: 'footer-img' %>
+        <div class="btn btn-primary footer-link">
+          <p class="footer-gardens-word">Gardens</p>
         </div>
       </div>
     <% end %>
-  <% end %>
-  <%= render 'shared/footer', favorite: current_user.favorites_by_type('Crop').count %>
+    <%= link_to crops_path do %>
+      <div class="crop-container-img">
+        <%= image_tag 'cropsindex', class: 'footer-img' %>
+        <div class="btn btn-primary footer-link">
+          <p class="footer-crops-word">Crops</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

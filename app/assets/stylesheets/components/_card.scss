@@ -201,7 +201,7 @@ color: #ff6600 !important;
 }
 
 .card-gardens-index-header {
-  background-color: $moss;
+  background-color: #87ceeb;
   background-image: url('vines.png');
   background-size: cover;
   border-radius: 16px;
@@ -211,12 +211,14 @@ color: #ff6600 !important;
     font-size: 1.8rem;
     color: $off-white;
     font-weight: bold;
+    text-shadow: 1px 1px 1px black;
   }
   p {
     margin: 4px 8px;
     color: $off-white;
     font-weight: bold;
     font-size: 1.2rem;
+    text-shadow: 1px 1px 1px black;
   }
 }
 
@@ -235,45 +237,10 @@ color: #ff6600 !important;
   }
 }
 
-// Other cards. Start with... .card-other-
-
-
-.card-widget {
-  text-align: center;
-  width: 100%;
-  padding: 8px;
-  h3 {
-    font-size: 1.2rem;
-  }
-  img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    background-color: $mint;
-    border-radius: 16px;
-  }
-}
-
-// .card-widget-plot {
-//   text-align: center;
-//   width: 100%;
-//   padding: 8px;
-//   img {
-//     width: 50px;
-//     background-color: $mint;
-//     border-radius: 16px;
-//   }
-// }
-
-.card-other-note {
-  margin-top: 16px;
-  background-color: $weak-yolk;
-}
-
 // For todo list
 // background-color:  #b2c4ffd1;
 .card-garden-todo-need-water {
-   display: flex;
+  display: flex;
   // justify-content: space-between;
   border-radius: 8px;
   background-color:  #b2c4ffd1;
@@ -338,7 +305,6 @@ color: #ff6600 !important;
   // align-items: center;
   position: relative;
   height: 30px;
-  width: 330px;
   // border: 1px solid red;
   .water-needed {
     position: absolute;
@@ -353,11 +319,11 @@ color: #ff6600 !important;
     font-weight: bolder;
   }
   i {
-  position: absolute;
-  top: 5px;
-  left: 6px;
-  color: #b2c4ffd1;
-}
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    color: #b2c4ffd1;
+  }
 }
 
 #sickle {
@@ -369,4 +335,39 @@ color: #ff6600 !important;
   border-radius: 50%;
   background: #db8833;
   margin: 8px;
+}
+
+// Other cards. Start with... .card-other-
+
+
+.card-widget {
+  text-align: center;
+  width: 100%;
+  padding: 8px;
+  h3 {
+    font-size: 1.2rem;
+  }
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    background-color: $mint;
+    border-radius: 16px;
+  }
+}
+
+// .card-widget-plot {
+//   text-align: center;
+//   width: 100%;
+//   padding: 8px;
+//   img {
+//     width: 50px;
+//     background-color: $mint;
+//     border-radius: 16px;
+//   }
+// }
+
+.card-other-note {
+  margin-top: 16px;
+  background-color: $weak-yolk;
 }
