@@ -1,4 +1,4 @@
-<div class="container" data-controller="tile-container">
+<div class="container container-garden-show-bg" data-controller="tile-container">
   <%# Info widget %>
   <div class="container-info-widget">
     <div class="card-widget">
@@ -22,7 +22,11 @@
     </div>
   </div>
   <%# Garden display %>
-  <h3>Select a Tile</h3>
+  <div class="container-for-container-garden-title">
+    <div class="container-garden-in-between-title">
+      <h3>Select a Tile</h3><i class="fas fa-long-arrow-alt-down"></i>
+    </div>
+  </div>
   <div class ="container-garden-perspective">
     <div class="garden" style="grid-template-columns: repeat(<%= (@garden.width * 2).to_i %>, 60px)">
       <% @tiles.each do |tile| %>
