@@ -1,6 +1,8 @@
 <div class="card-widget">
-  <%= image_tag(tile.plot.crop.image_url) %>
-  <p><%= tile.plot.crop.name %></p>
+  <div class="card-widget-selected-plot">
+    <h3><%= tile.plot.crop.name %></h3>
+    <%= image_tag(tile.plot.crop.image_url) %>
+  </div>
   <%# Harvest method %>
   <% if perennials.include?(tile.plot.crop.plant_family) %>
     <% if days_left > 0 %>

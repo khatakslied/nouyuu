@@ -12,7 +12,7 @@
       <%# Tile/plot edit widget %>
       <div class="form-container-gardens" data-tile-container-target="form">
         <%= simple_form_for [@garden, @plot] do |f| %>
-          <%= f.input :crop, as: :select, collection: (@favorites + @hardiness_recommendation).sort { |a, b| a.name<=>b.name }, label: "Choose A Crop", required: false %>
+          <%= f.input :crop, as: :select, collection: (@favorites + @hardiness_recommendation).sort { |a, b| a.name<=>b.name }, include_blank: false, label: "Choose A Crop", required: false %>
           <%= f.input :tiles, as: :hidden, :input_html => { data: { "tile-container-target": "input" } } %>
           <%= f.submit "Plant Crops", class: 'btn btn-primary btn-gardens btn-shadow mt-0' %>
         <% end %>
