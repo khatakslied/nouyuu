@@ -53,7 +53,7 @@ rails s
 
 ## Team Members
 - [Matías Acuña](https://www.linkedin.com/in/agroang/)
-- [Ryan Johnson]
+- [Ryan Johnson](https://www.linkedin.com/in/ryan-joseph-johnson/)
 - [Yatsenko Konstantin]
 
 ## Contributing
