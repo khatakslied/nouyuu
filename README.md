@@ -50,7 +50,6 @@ rails s
 - [PostgreSQL](https://www.postgresql.org/) - Database
 - [Bootstrap](https://getbootstrap.com/) — Styling
 - [Figma](https://www.figma.com) — Prototyping
-- 
 
 ## Team Members
 - [Matías Acuña](https://www.linkedin.com/in/agroang/)
