@@ -5,7 +5,7 @@
 Nouyuu is a web application that looks to help people start a garden and manage it, or help people already gardening to manage theirs. It has a crops database with relevant information and makes recommendations based on your location and season.
 
 <br>
-App home: https:www.nouyuu.com
+App home https:www.nouyuu.com
    
 
 ## Getting Started
