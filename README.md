@@ -1,6 +1,6 @@
 # 📚 Nouyuu (農友)
 
-<strong>Currently some features work only for Japan</strong>
+<strong><em>Currently some features work only for Japan</em></strong>
 
 Nouyuu is a web application that looks to help people start a garden and manage it, or help people already gardening to manage theirs. It has a crops database with relevant information and makes recommendations based on your location and season.
 
