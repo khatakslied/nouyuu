@@ -2,9 +2,7 @@
 
 <strong><em>Currently some features work only for Japan</em></strong>
 
-<img width="256" alt="nouyuu crop recommendations" src="https://user-images.githubusercontent.com/36095929/145031015-53990571-649b-46ce-87a9-58a3373e2e86.png"> <img width="255" alt="nouyuu garden index" src="https://user-images.githubusercontent.com/36095929/145031080-6c36a769-7303-455e-b228-f1c2d5d715db.png">
-<img width="568" alt="nouyuu garden" src="https://user-images.githubusercontent.com/36095929/145031029-1b42b320-8765-4deb-a279-38096e623eee.png">
-
+<img width="256" alt="nouyuu crop recommendations" src="https://user-images.githubusercontent.com/36095929/145031015-53990571-649b-46ce-87a9-58a3373e2e86.png"> <img width="255" alt="nouyuu garden index" src="https://user-images.githubusercontent.com/36095929/145031080-6c36a769-7303-455e-b228-f1c2d5d715db.png"> <img width="257" alt="nouyuu garden show" src="https://user-images.githubusercontent.com/36095929/145031761-063d65b0-54f2-4b0c-99e5-af16d3d05dd1.png">
 
 Nouyuu is a web application that looks to help people start a garden and manage it, or help people already gardening to manage theirs. It has a crops database with relevant information and makes recommendations based on your location and season.
 
