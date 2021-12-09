@@ -7,7 +7,7 @@
         <div class="card-gardens-index">
           <div class="card-gardens-index-header">
             <div class="text-center">
-              <h2><%= garden.location.split(',')[0].capitalize  %> Garden</h2>
+              <h2><%= garden.location.split(',')[0].titleize  %> Garden</h2>
             </div>
             <p><%= number_with_precision(garden.height, strip_insignificant_zeros: true) %>  x <%= number_with_precision(garden.width, strip_insignificant_zeros: true) %> meters</p>
             <p><%= 100 - (((garden.tiles.where.not(plot_id: nil).count) * 100) / garden.tiles.count) %>% of unplanted space</p>

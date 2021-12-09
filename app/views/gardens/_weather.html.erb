@@ -1,7 +1,7 @@
 <h3><%= @weather_response['name'] %></h3>
 <div>
 <%= image_tag("http://openweathermap.org/img/wn/#{@weather_response['weather'][0]['icon']}@2x.png") %>
-<small><%= @weather_response['weather'][0]['description'].capitalize %></small>
+<small><%= @weather_response['weather'][0]['description'].titleize %></small>
 </div>
 <div class="container-temp-info">
   <small>High: <%= @weather_response['main']['temp_max'].round %>°C</small>
